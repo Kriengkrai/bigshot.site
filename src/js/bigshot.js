@@ -331,17 +331,62 @@ if (!self["bigshot"]) {
         return layer;
     };
     
+    bigshot.LRUMap = function () {
+        return {
+            keyToTime : {},
+            counter : 0,
+            size : 0,
+            
+            access : function (key) {
+                this.remove (key);
+                this.keyToTime[key] = this.counter;
+                ++this.counter;
+                ++this.size;
+            },
+            
+            remove : function (key) {
+                if (this.keyToTime[key]) {
+                    delete this.keyToTime[key];
+                    --this.size;
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+            
+            getSize : function () {
+                return this.size;
+            },
+            
+            leastUsed : function () {
+                var least = this.counter + 1;
+                var leastKey = null;
+                for (var k in this.keyToTime) {
+                    if (this.keyToTime[k] < least) {
+                        least = this.keyToTime[k];
+                        leastKey = k;
+                    }
+                }
+                return leastKey;
+            }
+        };
+    }
+    
     bigshot.ImageTileCache = function (onLoaded, parameters) {
         var fullImage = document.createElement ("img");
-        fullImage.src = parameters.basePath + "/poster" + parameters.suffix;
+        fullImage.src = parameters.fileSystem.getFilename ("poster" + parameters.suffix);
         
         return {
             fullImage : fullImage,
+            maxCacheSize : 512,
             maxTileX : 0,
             maxTileY : 0,
             cachedImages : {},
             requestedImages : {},
             usedImages : {},
+            lastOnLoadFiredAt : 0,
+            imageRequests : 0,
+            lruMap : new bigshot.LRUMap (),
             onLoaded : onLoaded,
             browser : new bigshot.Browser (),
             
@@ -412,6 +457,8 @@ if (!self["bigshot"]) {
                 }
                 
                 var key = this.getImageKey (tileX, tileY, zoomLevel);
+                this.lruMap.access (key);
+                
                 if (this.cachedImages[key]) {
                     if (this.usedImages[key]) {
                         var tile = document.createElement ("img");
@@ -436,16 +483,33 @@ if (!self["bigshot"]) {
             requestImage : function (tileX, tileY, zoomLevel) {
                 var key = this.getImageKey (tileX, tileY, zoomLevel);
                 if (!this.requestedImages[key]) {
+                    this.imageRequests++;
                     var tile = document.createElement ("img");
-                    tile.src = this.getImageFilename (tileX, tileY, zoomLevel);
                     var that = this;
                     this.browser.registerListener (tile, "load", function () {                        
                             that.cachedImages[key] = tile;
                             delete that.requestedImages[key];
-                            that.onLoaded ();
+                            that.imageRequests--;
+                            var now = new Date();
+                            if (that.imageRequests == 0 || now.getTime () > (that.lastOnLoadFiredAt + 50)) {
+                                that.purgeCache ();
+                                that.lastOnLoadFiredAt = now.getTime ();
+                                that.onLoaded ();
+                            }
                         }, false);
                     this.requestedImages[key] = tile;
+                    tile.src = this.getImageFilename (tileX, tileY, zoomLevel);                    
                 }            
+            },
+            
+            purgeCache : function () {
+                for (var i = 0; i < 4; ++i) {
+                    if (this.lruMap.getSize () > this.maxCacheSize) {
+                        var leastUsed = this.lruMap.leastUsed ();
+                        this.lruMap.remove (leastUsed);
+                        delete this.cachedImages[leastUsed];                    
+                    }
+                }
             },
             
             getImageKey : function (tileX, tileY, zoomLevel) {
@@ -453,7 +517,7 @@ if (!self["bigshot"]) {
             },
             
             getImageFilename : function (tileX, tileY, zoomLevel) {
-                var f = parameters.basePath + "/" + (-zoomLevel) + "/" + tileX + "_" + tileY + parameters.suffix;
+                var f = parameters.fileSystem.getImageFilename (tileX, tileY, zoomLevel);
                 return f;
             }
         };
@@ -466,7 +530,7 @@ if (!self["bigshot"]) {
     };
     
     bigshot.Image = function (parameters) {
-        
+        bigshot.SetupFileSystem (parameters);
         var image = {
             container : parameters.container,
             x : parameters.width / 2.0,
@@ -509,8 +573,8 @@ if (!self["bigshot"]) {
                 
                 var topLeftTileX = Math.floor (topLeftInTilesX);
                 var topLeftTileY = Math.floor (topLeftInTilesY);
-                var topLeftTileXoffset = Math.floor ((topLeftInTilesX - topLeftTileX) * tileDisplayWidth);
-                var topLeftTileYoffset = Math.floor ((topLeftInTilesY - topLeftTileY) * tileDisplayWidth);
+                var topLeftTileXoffset = Math.round ((topLeftInTilesX - topLeftTileX) * tileDisplayWidth);
+                var topLeftTileYoffset = Math.round ((topLeftInTilesY - topLeftTileY) * tileDisplayWidth);
                 
                 for (var i = 0; i < this.layers.length; ++i) {
                     this.layers[i].layout (
@@ -810,11 +874,100 @@ if (!self["bigshot"]) {
         return image;
     }
     
+    bigshot.FileSystem = {
+        getFilename : function (name) {},
+        getImageFilename : function (tileX, tileY, zoomLevel) {},
+    };
+    
+    bigshot.FolderFileSystem = function (parameters) {
+        return {
+            getFilename : function (name) {
+                return parameters.basePath + "/" + name;
+            },
+            
+            getImageFilename : function (tileX, tileY, zoomLevel) {
+                var key = (-zoomLevel) + "/" + tileX + "_" + tileY + parameters.suffix;
+                return this.getFilename (key);
+            }
+        };
+    };
+    
+    bigshot.ArchiveFileSystem = function (parameters) {
+        var fs = {
+            indexSize : 0,
+            offset : 0,
+            index : {},
+            
+            init : function () {
+                var browser = new bigshot.Browser ();
+                var req = browser.createXMLHttpRequest ();
+                req.open("GET", parameters.basePath + "&start=0&length=24", false);   
+                req.send(null);  
+                if(req.status == 200) {
+                    if (req.responseText.substring (0, 7) != "BIGSHOT") {
+                        alert ("\"" + parameters.basePath + "\" is not a valid bigshot file");
+                        return;
+                    }
+                    this.indexSize = parseInt (req.responseText.substring (8), 16);
+                    this.offset = this.indexSize + 24;
+                    
+                    req.open("GET", parameters.basePath + "&start=24&length=" + this.indexSize, false);   
+                    req.send(null);  
+                    if(req.status == 200) {
+                        var substrings = req.responseText.split (":");
+                        for (var i = 0; i < substrings.length; i += 3) {
+                            this.index[substrings[i]] = {
+                                start : parseInt (substrings[i + 1]) + this.offset,
+                                length : parseInt (substrings[i + 2])
+                            };
+                        }
+                    } else {
+                        alert ("The index of \"" + parameters.basePath + "\" could not be loaded: " + req.status);
+                    }
+                } else {
+                    alert ("The header of \"" + parameters.basePath + "\" could not be loaded: " + req.status);
+                }
+            },
+            
+            getFilename : function (name) {
+                var f = parameters.basePath + "&start=" + this.index[name].start + "&length=" + this.index[name].length;
+                if (f.substring (f.length - 4) == ".jpg") {
+                    f = f + "&type=image/jpeg";
+                } else if (f.substring (f.length - 4) == ".png") {
+                    f = f + "&type=image/png";
+                } else {
+                    f = f + "&type=text/plain";
+                }
+                return f;
+            },
+            
+            getImageFilename : function (tileX, tileY, zoomLevel) {
+                var key = (-zoomLevel) + "/" + tileX + "_" + tileY + parameters.suffix;
+                return this.getFilename (key);
+            },
+        };
+        
+        fs.init ();
+        return fs;
+    }
+    
+    bigshot.SetupFileSystem = function (parameters) {
+        if (!parameters.fileSystem) {
+            if (parameters.fileSystemType == "archive") {
+                parameters.fileSystem = new bigshot.ArchiveFileSystem (parameters);
+            } else {
+                parameters.fileSystem = new bigshot.FolderFileSystem (parameters);
+            }
+        }
+    }
+    
     bigshot.ImageFromDescriptor = function (parameters) {
+        bigshot.SetupFileSystem (parameters);
+        
         var browser = new bigshot.Browser ();
         var req = browser.createXMLHttpRequest ();
         
-        req.open("GET", parameters.basePath + "/descriptor", false);   
+        req.open("GET", parameters.fileSystem.getFilename ("descriptor"), false);   
         req.send(null);  
         if(req.status == 200) {
             var substrings = req.responseText.split (":");
