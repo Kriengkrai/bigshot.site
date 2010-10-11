@@ -298,15 +298,6 @@ ul.inheritsList
 						</tr>
 					
 						<tr>
-							<td class="attributes">&lt;inner&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#-consumeEvent">consumeEvent</a></b>(event)
-								</div>
-								<div class="description">Helper function to consume events.</div>
-							</td>
-						</tr>
-					
-						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#createLayerContainer">createLayerContainer</a></b>()
@@ -318,18 +309,9 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#dragMouseMove">dragMouseMove</a></b>(event)
+								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#dispose">dispose</a></b>()
 								</div>
-								<div class="description">Handles a mouse drag event by panning the image.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#dragMouseUp">dragMouseUp</a></b>(event)
-								</div>
-								<div class="description">Ends a drag event by freeing the associated structures.</div>
+								<div class="description">Unregisters event handlers and other page-level hooks.</div>
 							</td>
 						</tr>
 					
@@ -348,15 +330,6 @@ ul.inheritsList
 								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#fitZoom">fitZoom</a></b>(imageDimension, containerDimension)
 								</div>
 								<div class="description">Helper function for calculating zoom levels.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#flashTouchUI">flashTouchUI</a></b>(delay, fadeOut)
-								</div>
-								<div class="description">Briefly shows the touch ui zones.</div>
 							</td>
 						</tr>
 					
@@ -489,36 +462,9 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#mouseClick">mouseClick</a></b>(event)
+								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#moveTo">moveTo</a></b>(x, y, zoom, updateViewport)
 								</div>
-								<div class="description">Handles mouse click events.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#mouseDoubleClick">mouseDoubleClick</a></b>(event)
-								</div>
-								<div class="description">Mouse double-click handler.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#mouseWheelHandler">mouseWheelHandler</a></b>(delta)
-								</div>
-								<div class="description">handles mouse wheel actions.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#onresize">onresize</a></b>()
-								</div>
-								<div class="description">Must be called on window resize.</div>
+								<div class="description">Stops any current flyTo operation and sets the current position.</div>
 							</td>
 						</tr>
 					
@@ -561,18 +507,9 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#setPosition">setPosition</a></b>(x, y)
+								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#showTouchUI">showTouchUI</a></b>(delay, fadeOut)
 								</div>
-								<div class="description">Sets the current position.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#setZoom">setZoom</a></b>(zoom)
-								</div>
-								<div class="description">Sets the current zoom value.</div>
+								<div class="description">Briefly shows the touch ui zones.</div>
 							</td>
 						</tr>
 					
@@ -581,16 +518,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#stopFlying">stopFlying</a></b>()
 								</div>
-								<div class="description">Interrupts the current flyTo, if one is active.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&lt;inner&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#-translateEvent">translateEvent</a></b>(event)
-								</div>
-								<div class="description">Helper function to translate touch events to mouse-like events.</div>
+								<div class="description">Interrupts the current <a href="#flyTo">#flyTo</a>, if one is active.</div>
 							</td>
 						</tr>
 					
@@ -642,7 +570,7 @@ ul.inheritsList
 				</div>
 				
 				<div class="description">
-					Creates a new tiled image viewer.
+					Creates a new tiled image viewer. (Note: See <a href="../symbols/bigshot.Image.html#dispose">bigshot.Image#dispose</a> for important information.)
 					
 				</div>
 				
@@ -670,6 +598,13 @@ ul.inheritsList
 					
 					
 					
+					
+						<dl class="detailList">
+						<dt class="heading">See:</dt>
+						
+							<dd><a href="../symbols/bigshot.Image.html#dispose">bigshot.Image#dispose</a></dd>
+						
+						</dl>
 					
 
 			</div>
@@ -717,41 +652,12 @@ ul.inheritsList
 						
 						
 						
-
-					<hr />
-				
-					<a name="-consumeEvent"> </a>
-					<div class="fixedFont">&lt;inner&gt; 
-					
-					
-					<b>consumeEvent</b>(event)
-					
-					</div>
-					<div class="description">
-						Helper function to consume events.
-						
-						
-					</div>
-					
-					
-					
-						
 							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
+							<dt class="heading">See:</dt>
 							
-								<dt>
-									<b>event</b>
-									
-								</dt>
-								<dd></dd>
+								<dd><a href="../symbols/bigshot.HotspotLayer.html">bigshot.HotspotLayer</a> for usage example</dd>
 							
 							</dl>
-						
-						
-						
-						
-						
-						
 						
 
 					<hr />
@@ -781,68 +687,21 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="dragMouseMove"> </a>
+					<a name="dispose"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>dragMouseMove</b>(event)
+					<b>dispose</b>()
 					
 					</div>
 					<div class="description">
-						Handles a mouse drag event by panning the image.Also sets the dragged flag to indicate that thefollowing <code>click</code> event should be ignored.
+						Unregisters event handlers and other page-level hooks. The client need not call thismethod unless bigshot images are created and removed from the pagedynamically. In that case, this method must be called when the client wishes tofree the resources allocated by the image. Otherwise the browser will garbage-collectall resources automatically.
 						
 						
 					</div>
 					
 					
 					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>event</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="dragMouseUp"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>dragMouseUp</b>(event)
-					
-					</div>
-					<div class="description">
-						Ends a drag event by freeing the associated structures.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>event</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
 						
 						
 						
@@ -927,48 +786,6 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="flashTouchUI"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>flashTouchUI</b>(delay, fadeOut)
-					
-					</div>
-					<div class="description">
-						Briefly shows the touch ui zones.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{int}</span> <b>delay</b>
-									<i>Optional</i>
-								</dt>
-								<dd>milliseconds before fading out</dd>
-							
-								<dt>
-									<span class="light fixedFont">{int}</span> <b>fadeOut</b>
-									<i>Optional</i>
-								</dt>
-								<dd>milliseconds to fade out the zone overlays in</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
 					<a name="flyTo"> </a>
 					<div class="fixedFont">
 					
@@ -990,19 +807,19 @@ ul.inheritsList
 							
 								<dt>
 									<span class="light fixedFont">{number}</span> <b>x</b>
-									
+									<i>Optional</i>
 								</dt>
 								<dd>the new x-coordinate</dd>
 							
 								<dt>
 									<span class="light fixedFont">{number}</span> <b>y</b>
-									
+									<i>Optional</i>
 								</dt>
 								<dd>the new y-coordinate</dd>
 							
 								<dt>
 									<span class="light fixedFont">{number}</span> <b>zoom</b>
-									
+									<i>Optional</i>
 								</dt>
 								<dd>the new zoom level</dd>
 							
@@ -1100,7 +917,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Maximizes the image to cover the browser viewport.For unknown reasons (probably security), browsers willnot let you open a window that covers the entire screen.Even when specifying "fullscreen=yes", all you get is a windowthat has a title bar and only covers the desktop (not any taskbars or the like). For now, this is the best that I can do,but should the situation change I'll update this to befull-screen<i>-ier</i>.
+						Maximizes the image to cover the browser viewport.The container div is removed from its parent node upon entering full screen mode. When leaving full screen mode, the containeris appended to its old parent node. To avoid rearranging thenodes, wrap the container in an extra div.<p>For unknown reasons (probably security), browsers willnot let you open a window that covers the entire screen.Even when specifying "fullscreen=yes", all you get is a windowthat has a title bar and only covers the desktop (not any taskbars or the like). For now, this is the best that I can do,but should the situation change I'll update this to befull-screen<i>-ier</i>.
 						
 						
 					</div>
@@ -1206,7 +1023,7 @@ ul.inheritsList
 					<a name="getTouchAreaBaseSize"> </a>
 					<div class="fixedFont">
 					
-					
+					<span class="light">{number}</span>
 					<b>getTouchAreaBaseSize</b>()
 					
 					</div>
@@ -1231,7 +1048,7 @@ ul.inheritsList
 					<a name="getX"> </a>
 					<div class="fixedFont">
 					
-					
+					<span class="light">{number}</span>
 					<b>getX</b>()
 					
 					</div>
@@ -1256,7 +1073,7 @@ ul.inheritsList
 					<a name="getY"> </a>
 					<div class="fixedFont">
 					
-					
+					<span class="light">{number}</span>
 					<b>getY</b>()
 					
 					</div>
@@ -1353,15 +1170,15 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="mouseClick"> </a>
+					<a name="moveTo"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>mouseClick</b>(event)
+					<b>moveTo</b>(x, y, zoom, updateViewport)
 					
 					</div>
 					<div class="description">
-						Handles mouse click events. If the touch UI is active,we'll pan and/or zoom, as appropriate. If not, we just ignorethe event.
+						Stops any current flyTo operation and sets the current position.
 						
 						
 					</div>
@@ -1373,109 +1190,30 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>event</b>
-									
+									<b>x</b>
+									<i>Optional</i>
 								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="mouseDoubleClick"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>mouseDoubleClick</b>(event)
-					
-					</div>
-					<div class="description">
-						Mouse double-click handler. Pans to the clicked point andzooms in half a zoom level (approx 40%).
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
+								<dd>the new x-coordinate</dd>
 							
 								<dt>
-									<b>event</b>
-									
+									<b>y</b>
+									<i>Optional</i>
 								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="mouseWheelHandler"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>mouseWheelHandler</b>(delta)
-					
-					</div>
-					<div class="description">
-						handles mouse wheel actions.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
+								<dd>the new y-coordinate</dd>
 							
 								<dt>
-									<b>delta</b>
-									
+									<b>zoom</b>
+									<i>Optional</i>
 								</dt>
-								<dd></dd>
+								<dd>the new zoom level</dd>
+							
+								<dt>
+									<b>updateViewport</b>
+									<i>Optional</i>
+								</dt>
+								<dd>if the viewport should be updated, defaults to <code>true</code></dd>
 							
 							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="onresize"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>onresize</b>()
-					
-					</div>
-					<div class="description">
-						Must be called on window resize.
-						
-						
-					</div>
-					
-					
-					
 						
 						
 						
@@ -1625,15 +1363,15 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="setPosition"> </a>
+					<a name="showTouchUI"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>setPosition</b>(x, y)
+					<b>showTouchUI</b>(delay, fadeOut)
 					
 					</div>
 					<div class="description">
-						Sets the current position.
+						Briefly shows the touch ui zones. See the <a href="../symbols/bigshot.ImageParameters.html#touchUI">bigshot.ImageParameters#touchUI</a>documentation for an explanation of the touch ui.
 						
 						
 					</div>
@@ -1645,16 +1383,16 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>x</b>
-									
+									<span class="light fixedFont">{int}</span> <b>delay</b>
+									<i>Optional</i>
 								</dt>
-								<dd></dd>
+								<dd>milliseconds before fading out</dd>
 							
 								<dt>
-									<b>y</b>
-									
+									<span class="light fixedFont">{int}</span> <b>fadeOut</b>
+									<i>Optional</i>
 								</dt>
-								<dd></dd>
+								<dd>milliseconds to fade out the zone overlays in</dd>
 							
 							</dl>
 						
@@ -1663,42 +1401,13 @@ ul.inheritsList
 						
 						
 						
-						
-
-					<hr />
-				
-					<a name="setZoom"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>setZoom</b>(zoom)
-					
-					</div>
-					<div class="description">
-						Sets the current zoom value.
-						
-						
-					</div>
-					
-					
-					
 						
 							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
+							<dt class="heading">See:</dt>
 							
-								<dt>
-									<span class="light fixedFont">{number}</span> <b>zoom</b>
-									
-								</dt>
-								<dd>the zoom value.</dd>
+								<dd><a href="../symbols/bigshot.ImageParameters.html#touchUI">bigshot.ImageParameters#touchUI</a></dd>
 							
 							</dl>
-						
-						
-						
-						
-						
-						
 						
 
 					<hr />
@@ -1711,49 +1420,13 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Interrupts the current flyTo, if one is active.
+						Interrupts the current <a href="#flyTo">#flyTo</a>, if one is active.
 						
 						
 					</div>
 					
 					
 					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="-translateEvent"> </a>
-					<div class="fixedFont">&lt;inner&gt; 
-					
-					
-					<b>translateEvent</b>(event)
-					
-					</div>
-					<div class="description">
-						Helper function to translate touch events to mouse-like events.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>event</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
 						
 						
 						
@@ -1851,7 +1524,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.3.2 on Sun Oct 10 2010 23:02:18 GMT+0200 (CEST)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.3.2 on Mon Oct 11 2010 12:20:48 GMT+0200 (CEST)
 		</div>
 	</body>
 </html>

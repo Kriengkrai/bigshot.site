@@ -26,7 +26,7 @@
             
             div.bigshotContainer {
                 border:1px solid black; 
-                background: black; 
+                background: red; 
             }
             
             div.bigshotContainer div.hotspot, div.bigshotContainer div.bigshotControls {
@@ -91,37 +91,31 @@
             function myonload () {
                 var container = document.getElementById ("container");
                 
-                jsi = new bigshot.ImageFromDescriptor ({ 
-                        /*width : 7352,
-                        height: 5419,
-                        minZoom : -11.0,
-                        tileSize : 256,
-                        overlap : 0,
-                        posterSize : 512.0,*/
-                        basePath : "../../temp/image",
-                        container : container/*,
-                        emptyImage : "empty.png",
-                        wrapX : false,
-                        wrapY : false*/
-                    });
+                jsi = new bigshot.Image (
+                    new bigshot.ImageParameters ({
+                            basePath : "../../temp/image.bigshot",
+                            container : container,
+                            touchUI : true
+                        }));
                 
-                var layerContainer = jsi.createLayerContainer ();
-                var hotspotLayer = new bigshot.HotspotLayer (container, layerContainer);
+                var hotspotLayer = new bigshot.HotspotLayer (jsi);
                 var hotspot = new bigshot.LinkHotspot (100, 100, 200, 100, "Bigshot on Google Code", "http://code.google.com/p/bigshot/");
                 hotspot.getElement ().className = "hotspot";
                 hotspot.getLabel ().className = "label";
                 
                 hotspotLayer.addHotspot (hotspot);
-                jsi.addLayer (hotspotLayer, layerContainer);
-                jsi.setZoom (0.0);
+                jsi.addLayer (hotspotLayer);
+                
+                var browser = new bigshot.Browser ();
+                browser.stopMouseEventBubbling (document.getElementById ("bigshotControls"));
             }
             
             function zoomOut () {
-                jsi.setZoom (jsi.getZoom () - 0.1);
+                jsi.moveTo (null, null, jsi.getZoom () - 0.5);
             }
             
             function zoomIn () {
-                jsi.setZoom (jsi.getZoom () + 0.1);
+                jsi.moveTo (null, null, jsi.getZoom () + 0.5);
             }
             
             function smoothIn () {
@@ -131,22 +125,52 @@
             function toHotspot () {
                 jsi.flyTo (200, 150, jsi.rectVisibleAtZoomLevel (200,100));
             }
+            
+            function fullScreen () {
+                var span = document.getElementById ("fullscreen");
+                var container = document.getElementById ("container");
+                span.style.visibility = "hidden";
+                jsi.fullScreen (function () {
+                        span.style.visibility = "inherit";
+                    });
+            }
+            
+            function flashUI () {
+                jsi.showTouchUI ();
+            }
         </script>
     </head>
-    <body onload="myonload();" onresize="jsi.onresize ();">
-        <div style="position: relative; height:600px;" id="container" class="bigshotContainer">
-            <div style="position:absolute; left:50%;">
-                <div class="bigshotControls">
-                    <p>
-                    <a href="#" onclick="zoomOut(); return false;">-</a> | 
-                    <a href="#" onclick="zoomIn(); return false;">+</a> | 
-                    <a href="#" onclick="smoothIn(); return false;">Zoom in on center</a> | 
-                    <a href="#" onclick="toHotspot(); return false;">Pan to hotspot</a> |
-                    <a href="#" onclick="jsi.flyZoomToFit (); return false;">Zoom to Fit</a>
-                    </p>
+    <body onload="myonload();">
+        <div>
+            <div style="position: relative; background:red; overflow:hidden; height:600px;" id="container" class="bigshotContainer">
+                <div style="position:absolute; left:50%;">
+                    <div id="bigshotControls" class="bigshotControls">
+                        <p>
+                        <a href="#" onclick="zoomOut(); return false;">-</a> | 
+                        <a href="#" onclick="zoomIn(); return false;">+</a> | 
+                        <a href="#" onclick="smoothIn(); return false;">Zoom in on center</a> | 
+                        <a href="#" onclick="toHotspot(); return false;">Pan to hotspot</a> |
+                        <a href="#" onclick="jsi.flyZoomToFit (); return false;">Zoom to Fit</a><span id="fullscreen"> |
+                            <a onclick="fullScreen (); return false;" href="#">Fullscreen</a></span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-        
+        <div class="mobileui">
+            <table width="100%">
+                <tr>
+                    <td width="30%">
+                        <button style="width:100%; font-size: 20pt;" type="button" onclick="zoomIn(); return false">In</button>
+                    </td>
+                    <td width="30%">
+                        <button style="width:100%; font-size: 20pt;" type="button" onclick="zoomOut(); return false">Out</button>
+                    </td>
+                    <td width="30%">
+                        <button style="width:100%; font-size: 20pt;" type="button" onclick="flashUI(); return false">Touch UI</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>
