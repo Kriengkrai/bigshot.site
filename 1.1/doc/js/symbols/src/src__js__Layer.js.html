@@ -28,44 +28,45 @@
 <span class='line'> 21</span>  * @constructor
 <span class='line'> 22</span>  */</span><span class="WHIT">
 <span class='line'> 23</span> </span><span class="NAME">bigshot.Layer</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'> 24</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'> 25</span>      * Returns the layer container.
-<span class='line'> 26</span>      *
-<span class='line'> 27</span>      * @type HTMLDivElement
-<span class='line'> 28</span>      */</span><span class="WHIT">
-<span class='line'> 29</span> </span><span class="WHIT">    </span><span class="NAME">this.getContainer</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 30</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'> 31</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'> 32</span>      * Sets the maximum number of image tiles that will be visible in the image.
-<span class='line'> 33</span>      *
-<span class='line'> 34</span>      * @param {int} x the number of tiles horizontally
-<span class='line'> 35</span>      * @param {int} y the number of tiles vertically
-<span class='line'> 36</span>      */</span><span class="WHIT">
-<span class='line'> 37</span> </span><span class="WHIT">    </span><span class="NAME">this.setMaxTiles</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">x</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">y</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 38</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'> 39</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'> 40</span>      * Called when the image's viewport is resized.
-<span class='line'> 41</span>      *
-<span class='line'> 42</span>      * @param {int} w the new width of the viewport, in css pixels
-<span class='line'> 43</span>      * @param {int} h the new height of the viewport, in css pixels
-<span class='line'> 44</span>      */</span><span class="WHIT">
-<span class='line'> 45</span> </span><span class="WHIT">    </span><span class="NAME">this.resize</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">w</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">h</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 46</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'> 47</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'> 48</span>      * Lays out the layer.
-<span class='line'> 49</span>      *
-<span class='line'> 50</span>      * @param {number} zoom the zoom level
-<span class='line'> 51</span>      * @param {number} x0 the x-coordinate of the top-left corner of the top-left tile
-<span class='line'> 52</span>      * @param {number} y0 the y-coordinate of the top-left corner of the top-left tile
-<span class='line'> 53</span>      * @param {number} tx0 column number (starting at zero) of the top-left tile
-<span class='line'> 54</span>      * @param {number} ty0 row number (starting at zero) of the top-left tile
-<span class='line'> 55</span>      * @param {number} size tileSize
-<span class='line'> 56</span>      * @param {number} stride offset (vertical and horizontal) from the top-left corner
-<span class='line'> 57</span>      *                 of a tile to the next tile's top-left corner.
-<span class='line'> 58</span>      * @param {number} opacity the opacity of the layer.
-<span class='line'> 59</span>      */</span><span class="WHIT">
-<span class='line'> 60</span> </span><span class="WHIT">    </span><span class="NAME">this.layout</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">zoom</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">x0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">y0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">tx0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ty0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">size</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">stride</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">opacity</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 61</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'> 62</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 63</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 64</span> </span></pre></body></html>
+<span class='line'> 24</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 25</span> 
+<span class='line'> 26</span> </span><span class="NAME">bigshot.Layer.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 27</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'> 28</span>      * Returns the layer container.
+<span class='line'> 29</span>      *
+<span class='line'> 30</span>      * @type HTMLDivElement
+<span class='line'> 31</span>      */</span><span class="WHIT">
+<span class='line'> 32</span> </span><span class="WHIT">    </span><span class="NAME">getContainer</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 33</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'> 34</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'> 35</span>      * Sets the maximum number of image tiles that will be visible in the image.
+<span class='line'> 36</span>      *
+<span class='line'> 37</span>      * @param {int} x the number of tiles horizontally
+<span class='line'> 38</span>      * @param {int} y the number of tiles vertically
+<span class='line'> 39</span>      */</span><span class="WHIT">
+<span class='line'> 40</span> </span><span class="WHIT">    </span><span class="NAME">setMaxTiles</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">x</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">y</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 41</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'> 42</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'> 43</span>      * Called when the image's viewport is resized.
+<span class='line'> 44</span>      *
+<span class='line'> 45</span>      * @param {int} w the new width of the viewport, in css pixels
+<span class='line'> 46</span>      * @param {int} h the new height of the viewport, in css pixels
+<span class='line'> 47</span>      */</span><span class="WHIT">
+<span class='line'> 48</span> </span><span class="WHIT">    </span><span class="NAME">resize</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">w</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">h</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 49</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'> 50</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'> 51</span>      * Lays out the layer.
+<span class='line'> 52</span>      *
+<span class='line'> 53</span>      * @param {number} zoom the zoom level
+<span class='line'> 54</span>      * @param {number} x0 the x-coordinate of the top-left corner of the top-left tile
+<span class='line'> 55</span>      * @param {number} y0 the y-coordinate of the top-left corner of the top-left tile
+<span class='line'> 56</span>      * @param {number} tx0 column number (starting at zero) of the top-left tile
+<span class='line'> 57</span>      * @param {number} ty0 row number (starting at zero) of the top-left tile
+<span class='line'> 58</span>      * @param {number} size tileSize
+<span class='line'> 59</span>      * @param {number} stride offset (vertical and horizontal) from the top-left corner
+<span class='line'> 60</span>      *                 of a tile to the next tile's top-left corner.
+<span class='line'> 61</span>      * @param {number} opacity the opacity of the layer.
+<span class='line'> 62</span>      */</span><span class="WHIT">
+<span class='line'> 63</span> </span><span class="WHIT">    </span><span class="NAME">layout</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">zoom</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">x0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">y0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">tx0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ty0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">size</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">stride</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">opacity</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 64</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 65</span> </span></pre></body></html>

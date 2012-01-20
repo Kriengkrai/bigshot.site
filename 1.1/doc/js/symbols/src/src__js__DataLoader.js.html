@@ -25,22 +25,25 @@
 <span class='line'> 18</span>  * @class Abstract base.
 <span class='line'> 19</span>  */</span><span class="WHIT">
 <span class='line'> 20</span> </span><span class="NAME">bigshot.DataLoader</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'> 21</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'> 22</span>      * Loads an image.
-<span class='line'> 23</span>      *
-<span class='line'> 24</span>      * @param url the url to load
-<span class='line'> 25</span>      * @param {function(success,img)} onloaded called on complete 
-<span class='line'> 26</span>      */</span><span class="WHIT">
-<span class='line'> 27</span> </span><span class="WHIT">    </span><span class="NAME">this.loadImage</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">url</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">onloaded</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 28</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'> 29</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'> 30</span>      * Loads the xml.
-<span class='line'> 31</span>      *
-<span class='line'> 32</span>      * @param url the url to load
-<span class='line'> 33</span>      * @param {boolean} async use async request
-<span class='line'> 34</span>      * @param {function(success,xml)} [onloaded] called on complete for async requests
-<span class='line'> 35</span>      * @return the xml for synchronous calls
-<span class='line'> 36</span>      */</span><span class="WHIT">
-<span class='line'> 37</span> </span><span class="WHIT">    </span><span class="NAME">this.loadXml</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">url</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">async</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">onloaded</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 38</span> </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'> 39</span> </span></pre></body></html>
+<span class='line'> 21</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 22</span> 
+<span class='line'> 23</span> </span><span class="NAME">bigshot.DataLoader.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 24</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'> 25</span>      * Loads an image.
+<span class='line'> 26</span>      *
+<span class='line'> 27</span>      * @param url the url to load
+<span class='line'> 28</span>      * @param {function(success,img)} onloaded called on complete 
+<span class='line'> 29</span>      */</span><span class="WHIT">
+<span class='line'> 30</span> </span><span class="WHIT">    </span><span class="NAME">loadImage</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">url</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">onloaded</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 31</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'> 32</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'> 33</span>      * Loads the xml.
+<span class='line'> 34</span>      *
+<span class='line'> 35</span>      * @param url the url to load
+<span class='line'> 36</span>      * @param {boolean} async use async request
+<span class='line'> 37</span>      * @param {function(success,xml)} [onloaded] called on complete for async requests
+<span class='line'> 38</span>      * @return the xml for synchronous calls
+<span class='line'> 39</span>      */</span><span class="WHIT">
+<span class='line'> 40</span> </span><span class="WHIT">    </span><span class="NAME">loadXml</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">url</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">async</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">onloaded</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 41</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 42</span> </span></pre></body></html>
