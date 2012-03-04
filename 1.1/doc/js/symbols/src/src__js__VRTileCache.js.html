@@ -6,7 +6,7 @@
 	.REGX {color: #339;}
 	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
 	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
-<span class='line'>  2</span>  * Copyright 2010 Leo Sutic &lt;leo.sutic@gmail.com>
+<span class='line'>  2</span>  * Copyright 2010 - 2012 Leo Sutic &lt;leo.sutic@gmail.com>
 <span class='line'>  3</span>  *  
 <span class='line'>  4</span>  * Licensed under the Apache License, Version 2.0 (the "License"); 
 <span class='line'>  5</span>  * you may not use this file except in compliance with the License. 
@@ -22,13 +22,25 @@
 <span class='line'> 15</span>  */</span><span class="WHIT">
 <span class='line'> 16</span> </span><span class="WHIT">    </span><span class="WHIT">
 <span class='line'> 17</span> </span><span class="COMM">/**
-<span class='line'> 18</span>  * @class Abstract base.
+<span class='line'> 18</span>  * @class Abstract base class.
 <span class='line'> 19</span>  */</span><span class="WHIT">
 <span class='line'> 20</span> </span><span class="NAME">bigshot.VRTileCache</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
 <span class='line'> 21</span> </span><span class="PUNC">}</span><span class="WHIT">
 <span class='line'> 22</span> 
 <span class='line'> 23</span> </span><span class="NAME">bigshot.VRTileCache.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'> 24</span> </span><span class="WHIT">    </span><span class="NAME">getTexture</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">tileX</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">tileY</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">zoomLevel</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'> 25</span> </span><span class="WHIT">    </span><span class="NAME">purge</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'> 26</span> </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'> 27</span> </span></pre></body></html>
+<span class='line'> 24</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'> 25</span>      * Returns the texture object for the given tile-x, tile-y and zoom level.
+<span class='line'> 26</span>      * The return type is dependent on the renderer. The WebGL renderer, for example
+<span class='line'> 27</span>      * uses a tile cache that returns WebGL textures, while the CSS3D renderer
+<span class='line'> 28</span>      * returns HTML img or canvas elements.
+<span class='line'> 29</span>      */</span><span class="WHIT">
+<span class='line'> 30</span> </span><span class="WHIT">    </span><span class="NAME">getTexture</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">tileX</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">tileY</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">zoomLevel</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 31</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'> 32</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'> 33</span>      * Purges the cache of old entries.
+<span class='line'> 34</span>      *
+<span class='line'> 35</span>      * @type void
+<span class='line'> 36</span>      */</span><span class="WHIT">
+<span class='line'> 37</span> </span><span class="WHIT">    </span><span class="NAME">purge</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 38</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 39</span> </span></pre></body></html>

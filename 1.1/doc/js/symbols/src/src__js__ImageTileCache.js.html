@@ -6,7 +6,7 @@
 	.REGX {color: #339;}
 	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
 	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
-<span class='line'>  2</span>  * Copyright 2010 Leo Sutic &lt;leo.sutic@gmail.com>
+<span class='line'>  2</span>  * Copyright 2010 - 2012 Leo Sutic &lt;leo.sutic@gmail.com>
 <span class='line'>  3</span>  *  
 <span class='line'>  4</span>  * Licensed under the Apache License, Version 2.0 (the "License"); 
 <span class='line'>  5</span>  * you may not use this file except in compliance with the License. 
@@ -33,13 +33,13 @@
 <span class='line'> 26</span> </span><span class="WHIT">    </span><span class="NAME">this.parameters</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">parameters</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'> 27</span> </span><span class="WHIT">    </span><span class="WHIT">
 <span class='line'> 28</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'> 29</span>       * Reduced-resolution preview of the full image.
-<span class='line'> 30</span>       * Loaded from the "poster" image created by 
-<span class='line'> 31</span>       * MakeImagePyramid
-<span class='line'> 32</span>       *
-<span class='line'> 33</span>       * @private
-<span class='line'> 34</span>       * @type HTMLImageElement
-<span class='line'> 35</span>       */</span><span class="WHIT">
+<span class='line'> 29</span>      * Reduced-resolution preview of the full image.
+<span class='line'> 30</span>      * Loaded from the "poster" image created by 
+<span class='line'> 31</span>      * MakeImagePyramid
+<span class='line'> 32</span>      *
+<span class='line'> 33</span>      * @private
+<span class='line'> 34</span>      * @type HTMLImageElement
+<span class='line'> 35</span>      */</span><span class="WHIT">
 <span class='line'> 36</span> </span><span class="WHIT">    </span><span class="NAME">this.fullImage</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'> 37</span> </span><span class="WHIT">    </span><span class="NAME">parameters.dataLoader.loadImage</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">parameters.fileSystem.getPosterFilename</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">tile</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
 <span class='line'> 38</span> </span><span class="WHIT">            </span><span class="NAME">that.fullImage</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">tile</span><span class="PUNC">;</span><span class="WHIT">

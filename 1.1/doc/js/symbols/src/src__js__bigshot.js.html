@@ -6,7 +6,7 @@
 	.REGX {color: #339;}
 	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
 	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
-<span class='line'>  2</span>  * Copyright 2010 Leo Sutic &lt;leo.sutic@gmail.com>
+<span class='line'>  2</span>  * Copyright 2010 - 2012 Leo Sutic &lt;leo.sutic@gmail.com>
 <span class='line'>  3</span>  *  
 <span class='line'>  4</span>  * Licensed under the Apache License, Version 2.0 (the "License"); 
 <span class='line'>  5</span>  * you may not use this file except in compliance with the License. 
@@ -65,20 +65,20 @@
 <span class='line'> 58</span>      */</span><span class="WHIT">
 <span class='line'> 59</span> </span><span class="WHIT">    </span><span class="NAME">bigshot</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'> 60</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'> 61</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">Browser.js</span><span class="WHIT">
-<span class='line'> 62</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">FullScreen.js</span><span class="WHIT">
-<span class='line'> 63</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">DataLoader.js</span><span class="WHIT">
-<span class='line'> 64</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">DefaultDataLoader.js</span><span class="WHIT">
-<span class='line'> 65</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">CachingDataLoader.js</span><span class="WHIT">
-<span class='line'> 66</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">object.js</span><span class="WHIT">
+<span class='line'> 61</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">object.js</span><span class="WHIT">
+<span class='line'> 62</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">Browser.js</span><span class="WHIT">
+<span class='line'> 63</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">FullScreen.js</span><span class="WHIT">
+<span class='line'> 64</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">DataLoader.js</span><span class="WHIT">
+<span class='line'> 65</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">DefaultDataLoader.js</span><span class="WHIT">
+<span class='line'> 66</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">CachingDataLoader.js</span><span class="WHIT">
 <span class='line'> 67</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">Hotspot.js</span><span class="WHIT">
-<span class='line'> 68</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">LabeledHotspot.js</span><span class="WHIT">
-<span class='line'> 69</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">LinkHotspot.js</span><span class="WHIT">
-<span class='line'> 70</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">HotspotLayer.js</span><span class="WHIT">
-<span class='line'> 71</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">TileLayer.js</span><span class="WHIT">
-<span class='line'> 72</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">LRUMap.js</span><span class="WHIT">
-<span class='line'> 73</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">ImageTileCache.js</span><span class="WHIT">
-<span class='line'> 74</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">Layer.js</span><span class="WHIT">
+<span class='line'> 68</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">Layer.js</span><span class="WHIT">
+<span class='line'> 69</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">LabeledHotspot.js</span><span class="WHIT">
+<span class='line'> 70</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">LinkHotspot.js</span><span class="WHIT">
+<span class='line'> 71</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">HotspotLayer.js</span><span class="WHIT">
+<span class='line'> 72</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">TileLayer.js</span><span class="WHIT">
+<span class='line'> 73</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">LRUMap.js</span><span class="WHIT">
+<span class='line'> 74</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">ImageTileCache.js</span><span class="WHIT">
 <span class='line'> 75</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">ImageParameters.js</span><span class="WHIT">
 <span class='line'> 76</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">Image.js</span><span class="WHIT">
 <span class='line'> 77</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">FileSystem.js</span><span class="WHIT">
@@ -106,9 +106,6 @@
 <span class='line'> 99</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">VRHotspot.js</span><span class="WHIT">
 <span class='line'>100</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">VRPointHotspot.js</span><span class="WHIT">
 <span class='line'>101</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">VRRectangleHotspot.js</span><span class="WHIT">
-<span class='line'>102</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">ImageCarouselPanoramaVRRenderer.js</span><span class="WHIT">
-<span class='line'>103</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">ImageCarouselPanoramaParameters.js</span><span class="WHIT">
-<span class='line'>104</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">ImageCarouselPanorama.js</span><span class="WHIT">
-<span class='line'>105</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">AdaptiveLODMonitorParameters.js</span><span class="WHIT">
-<span class='line'>106</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">AdaptiveLODMonitor.js</span><span class="WHIT">
-<span class='line'>107</span> </span><span class="PUNC">}</span></pre></body></html>
+<span class='line'>102</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">AdaptiveLODMonitorParameters.js</span><span class="WHIT">
+<span class='line'>103</span> </span><span class="WHIT">    </span><span class="TOKN">#</span><span class="NAME">include</span><span class="WHIT"> </span><span class="NAME">AdaptiveLODMonitor.js</span><span class="WHIT">
+<span class='line'>104</span> </span><span class="PUNC">}</span></pre></body></html>

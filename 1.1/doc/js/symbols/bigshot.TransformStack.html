@@ -227,12 +227,6 @@ ul.inheritsList
 	
 	<li><a href="../symbols/bigshot.Image.html">bigshot.Image</a></li>
 	
-	<li><a href="../symbols/bigshot.ImageCarouselPanorama.html">bigshot.ImageCarouselPanorama</a></li>
-	
-	<li><a href="../symbols/bigshot.ImageCarouselPanoramaParameters.html">bigshot.ImageCarouselPanoramaParameters</a></li>
-	
-	<li><a href="../symbols/bigshot.ImageCarouselPanoramaVRRenderer.html">bigshot.ImageCarouselPanoramaVRRenderer</a></li>
-	
 	<li><a href="../symbols/bigshot.ImageParameters.html">bigshot.ImageParameters</a></li>
 	
 	<li><a href="../symbols/bigshot.ImageTileCache.html">bigshot.ImageTileCache</a></li>
@@ -391,27 +385,9 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.TransformStack.html#mvMultiply">mvMultiply</a></b>(matrix)
+								<div class="fixedFont"><b><a href="../symbols/bigshot.TransformStack.html#multiply">multiply</a></b>(matrix)
 								</div>
 								<div class="description">Multiplies the current world transform with a matrix.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.TransformStack.html#mvPopMatrix">mvPopMatrix</a></b>()
-								</div>
-								<div class="description">Pops the last-pushed world transform off the stack, thereby restoring it.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.TransformStack.html#mvPushMatrix">mvPushMatrix</a></b>(matrix)
-								</div>
-								<div class="description">Pushes the current world transform onto the stackand returns a new, identical one.</div>
 							</td>
 						</tr>
 					
@@ -421,6 +397,24 @@ ul.inheritsList
 								<div class="fixedFont"><b><a href="../symbols/bigshot.TransformStack.html#perspective">perspective</a></b>(fovy, aspect, znear, zfar)
 								</div>
 								<div class="description">Multiplies the current matrix with a perspective transformation matrix.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/bigshot.TransformStack.html#pop">pop</a></b>()
+								</div>
+								<div class="description">Pops the last-pushed world transform off the stack, thereby restoring it.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/bigshot.TransformStack.html#push">push</a></b>(matrix)
+								</div>
+								<div class="description">Pushes the current world transform onto the stackand returns a new, identical one.</div>
 							</td>
 						</tr>
 					
@@ -548,11 +542,11 @@ ul.inheritsList
 					Method Detail
 				</div>
 				
-					<a name="mvMultiply"> </a>
+					<a name="multiply"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>mvMultiply</b>(matrix)
+					<b>multiply</b>(matrix)
 					
 					</div>
 					<div class="description">
@@ -578,81 +572,6 @@ ul.inheritsList
 						
 						
 						
-						
-						
-						
-
-					<hr />
-				
-					<a name="mvPopMatrix"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{Matrix}</span>
-					<b>mvPopMatrix</b>()
-					
-					</div>
-					<div class="description">
-						Pops the last-pushed world transform off the stack, thereby restoring it.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd>the previously-pushed matrix</dd>
-							
-							</dl>
-						
-						
-						
-
-					<hr />
-				
-					<a name="mvPushMatrix"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{Matrix}</span>
-					<b>mvPushMatrix</b>(matrix)
-					
-					</div>
-					<div class="description">
-						Pushes the current world transform onto the stackand returns a new, identical one.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{Matrix}</span> <b>matrix</b>
-									<i>Optional</i>
-								</dt>
-								<dd>the new world transform. If omitted, the current is used</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd>the new world transform matrix</dd>
-							
-							</dl>
 						
 						
 						
@@ -707,6 +626,81 @@ ul.inheritsList
 						
 						
 						
+						
+						
+						
+
+					<hr />
+				
+					<a name="pop"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Matrix}</span>
+					<b>pop</b>()
+					
+					</div>
+					<div class="description">
+						Pops the last-pushed world transform off the stack, thereby restoring it.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>the previously-pushed matrix</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="push"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Matrix}</span>
+					<b>push</b>(matrix)
+					
+					</div>
+					<div class="description">
+						Pushes the current world transform onto the stackand returns a new, identical one.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Matrix}</span> <b>matrix</b>
+									<i>Optional</i>
+								</dt>
+								<dd>the new world transform. If omitted, the current is used</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>the new world transform matrix</dd>
+							
+							</dl>
 						
 						
 						
@@ -828,7 +822,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Fri Jan 20 2012 21:55:13 GMT+0100 (CET)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Mar 04 2012 16:43:26 GMT+0100 (CET)
 		</div>
 	</body>
 </html>
