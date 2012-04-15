@@ -297,7 +297,7 @@
 <span class='line'>290</span> </span><span class="WHIT">    </span><span class="WHIT">
 <span class='line'>291</span> </span><span class="WHIT">    </span><span class="COMM">/**
 <span class='line'>292</span>      * Controls the decay of the "flinging" animation. The fling animation decays
-<span class='line'>293</span>      * as 2^(flingScale * t) where t is the time in milliseconds since the animation started.
+<span class='line'>293</span>      * as 2^(-flingScale * t) where t is the time in milliseconds since the animation started.
 <span class='line'>294</span>      * For the animation to decay to half-speed in X seconds,
 <span class='line'>295</span>      * flingScale should then be set to 1 / (X*1000).
 <span class='line'>296</span>      *
