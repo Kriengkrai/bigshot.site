@@ -101,7 +101,7 @@
 <span class='line'> 94</span>      * The minimum zoom value. Zoom values are specified as a magnification; where
 <span class='line'> 95</span>      * 2&lt;sup>n&lt;/sup> is the magnification and n is the zoom value. So a zoom value of
 <span class='line'> 96</span>      * 2 means a 4x magnification of the full image. -3 means showing an image that
-<span class='line'> 97</span>      * is a quarter (1/8 or 1/2&lt;sup>3&lt;/sup>) of the full size.
+<span class='line'> 97</span>      * is a eighth (1/8 or 1/2&lt;sup>3&lt;/sup>) of the full size.
 <span class='line'> 98</span>      *
 <span class='line'> 99</span>      * @type number
 <span class='line'>100</span>      * @default &lt;i>Optional&lt;/i> set by MakeImagePyramid and loaded from descriptor
@@ -109,125 +109,153 @@
 <span class='line'>102</span> </span><span class="WHIT">    </span><span class="NAME">this.minZoom</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0.0</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>103</span> </span><span class="WHIT">    </span><span class="WHIT">
 <span class='line'>104</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'>105</span>      * Size of one tile in pixels.
-<span class='line'>106</span>      *
-<span class='line'>107</span>      * @type int
-<span class='line'>108</span>      * @default &lt;i>Optional&lt;/i> set by MakeImagePyramid and loaded from descriptor
-<span class='line'>109</span>      */</span><span class="WHIT">
-<span class='line'>110</span> </span><span class="WHIT">    </span><span class="NAME">this.tileSize</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>111</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'>112</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'>113</span>      * Tile overlap. Not implemented.
-<span class='line'>114</span>      *
-<span class='line'>115</span>      * @type int
-<span class='line'>116</span>      * @default &lt;i>Optional&lt;/i> set by MakeImagePyramid and loaded from descriptor
-<span class='line'>117</span>      */</span><span class="WHIT">
-<span class='line'>118</span> </span><span class="WHIT">    </span><span class="NAME">this.overlap</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>119</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'>120</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'>121</span>      * Flag indicating that the image should wrap horizontally. The image wraps on tile
-<span class='line'>122</span>      * boundaries; so in order to get a seamless wrap at zoom level -n; the image width must
-<span class='line'>123</span>      * be evenly divisible by &lt;code>tileSize * 2^n&lt;/code>. Set the minZoom value appropriately.
-<span class='line'>124</span>      * 
-<span class='line'>125</span>      * @type boolean
-<span class='line'>126</span>      * @default false
-<span class='line'>127</span>      */</span><span class="WHIT">
-<span class='line'>128</span> </span><span class="WHIT">    </span><span class="NAME">this.wrapX</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>129</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'>130</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'>131</span>      * Flag indicating that the image should wrap vertically. The image wraps on tile
-<span class='line'>132</span>      * boundaries; so in order to get a seamless wrap at zoom level -n; the image height must
-<span class='line'>133</span>      * be evenly divisible by &lt;code>tileSize * 2^n&lt;/code>. Set the minZoom value appropriately.
-<span class='line'>134</span>      *
-<span class='line'>135</span>      * @type boolean
-<span class='line'>136</span>      * @default false
-<span class='line'>137</span>      */</span><span class="WHIT">
-<span class='line'>138</span> </span><span class="WHIT">    </span><span class="NAME">this.wrapY</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>139</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'>140</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'>141</span>      * Base path for the image. This is filesystem dependent; but for the two most common cases
-<span class='line'>142</span>      * the following should be set
-<span class='line'>143</span>      *
-<span class='line'>144</span>      * &lt;ul>
-<span class='line'>145</span>      * &lt;li>&lt;b>archive&lt;/b>= The basePath is &lt;code>"&lt;path&gt;/bigshot.php?file=&lt;path-to-bigshot-archive-relative-to-bigshot.php&gt;"&lt;/code>;
-<span class='line'>146</span>      *     for example; &lt;code>"/bigshot.php?file=images/bigshot-sample.bigshot"&lt;/code>.
-<span class='line'>147</span>      * &lt;li>&lt;b>folder&lt;/b>= The basePath is &lt;code>"&lt;path-to-image-folder&gt;"&lt;/code>;
-<span class='line'>148</span>      *     for example; &lt;code>"/images/bigshot-sample"&lt;/code>.
-<span class='line'>149</span>      * &lt;/ul>
-<span class='line'>150</span>      *
-<span class='line'>151</span>      * @type String
-<span class='line'>152</span>      */</span><span class="WHIT">
-<span class='line'>153</span> </span><span class="WHIT">    </span><span class="NAME">this.basePath</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>154</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'>155</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'>156</span>      * The file system type. Used to create a filesystem instance unless
-<span class='line'>157</span>      * the fileSystem field is set. Possible values are &lt;code>"archive"&lt;/code>, 
-<span class='line'>158</span>      * &lt;code>"folder"&lt;/code> or &lt;code>"dzi"&lt;/code>.
-<span class='line'>159</span>      *
-<span class='line'>160</span>      * @type String
-<span class='line'>161</span>      * @default "folder"
-<span class='line'>162</span>      */</span><span class="WHIT">
-<span class='line'>163</span> </span><span class="WHIT">    </span><span class="NAME">this.fileSystemType</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"folder"</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>164</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'>165</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'>166</span>      * A reference to a filesystem implementation. If set; it overrides the
-<span class='line'>167</span>      * fileSystemType field.
-<span class='line'>168</span>      *
-<span class='line'>169</span>      * @default set depending on value of bigshot.ImageParameters.fileSystemType
-<span class='line'>170</span>      * @type bigshot.FileSystem
-<span class='line'>171</span>      */</span><span class="WHIT">
-<span class='line'>172</span> </span><span class="WHIT">    </span><span class="NAME">this.fileSystem</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>173</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'>174</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'>175</span>      * Object used to load data files.
-<span class='line'>176</span>      *
-<span class='line'>177</span>      * @default bigshot.DefaultDataLoader
-<span class='line'>178</span>      * @type bigshot.DataLoader
-<span class='line'>179</span>      */</span><span class="WHIT">
-<span class='line'>180</span> </span><span class="WHIT">    </span><span class="NAME">this.dataLoader</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">bigshot.DefaultDataLoader</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>181</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'>182</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'>183</span>      * Enable the touch-friendly ui. The touch-friendly UI splits the viewport into
-<span class='line'>184</span>      * three click-sensitive regions:
-<span class='line'>185</span>      * &lt;p style="text-align:center">&lt;img src="../images/touch-ui.png"/>&lt;/p>
-<span class='line'>186</span>      * 
-<span class='line'>187</span>      * &lt;p>Clicking (or tapping with a finger) on the outer region causes the viewport to zoom out.
-<span class='line'>188</span>      * Clicking anywhere within the middle, "pan", region centers the image on the spot clicked.
-<span class='line'>189</span>      * Finally, clicking in the center hotspot will center the image on the spot clicked and zoom
-<span class='line'>190</span>      * in half a zoom level.
-<span class='line'>191</span>      *
-<span class='line'>192</span>      * &lt;p>As before, you can drag to pan anywhere.
-<span class='line'>193</span>      *
-<span class='line'>194</span>      * &lt;p>If you have navigation tools for mouse users that hover over the image container, it 
-<span class='line'>195</span>      * is recommended that any click events on them are kept from bubbling, otherwise the click 
-<span class='line'>196</span>      * will propagate to the touch ui. One way is to use the 
-<span class='line'>197</span>      * {@link bigshot.Browser#stopMouseEventBubbling} method:
-<span class='line'>198</span>      *
-<span class='line'>199</span>      * @example
-<span class='line'>200</span>      * var browser = new bigshot.Browser ();
-<span class='line'>201</span>      * browser.stopMouseEventBubbling (document.getElementById ("myBigshotControlDiv"));
+<span class='line'>105</span>      * The maximum zoom value. Zoom values are specified as a magnification; where
+<span class='line'>106</span>      * 2&lt;sup>n&lt;/sup> is the magnification and n is the zoom value. So a zoom value of
+<span class='line'>107</span>      * 2 means a 4x magnification of the full image. -3 means showing an image that
+<span class='line'>108</span>      * is a eighth (1/8 or 1/2&lt;sup>3&lt;/sup>) of the full size.
+<span class='line'>109</span>      *
+<span class='line'>110</span>      * @type number
+<span class='line'>111</span>      * @default 0.0
+<span class='line'>112</span>      */</span><span class="WHIT">
+<span class='line'>113</span> </span><span class="WHIT">    </span><span class="NAME">this.maxZoom</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0.0</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>114</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'>115</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>116</span>      * Size of one tile in pixels.
+<span class='line'>117</span>      *
+<span class='line'>118</span>      * @type int
+<span class='line'>119</span>      * @default &lt;i>Optional&lt;/i> set by MakeImagePyramid and loaded from descriptor
+<span class='line'>120</span>      */</span><span class="WHIT">
+<span class='line'>121</span> </span><span class="WHIT">    </span><span class="NAME">this.tileSize</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>122</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'>123</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>124</span>      * Tile overlap. Not implemented.
+<span class='line'>125</span>      *
+<span class='line'>126</span>      * @type int
+<span class='line'>127</span>      * @default &lt;i>Optional&lt;/i> set by MakeImagePyramid and loaded from descriptor
+<span class='line'>128</span>      */</span><span class="WHIT">
+<span class='line'>129</span> </span><span class="WHIT">    </span><span class="NAME">this.overlap</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>130</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'>131</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>132</span>      * Flag indicating that the image should wrap horizontally. The image wraps on tile
+<span class='line'>133</span>      * boundaries; so in order to get a seamless wrap at zoom level -n; the image width must
+<span class='line'>134</span>      * be evenly divisible by &lt;code>tileSize * 2^n&lt;/code>. Set the minZoom value appropriately.
+<span class='line'>135</span>      * 
+<span class='line'>136</span>      * @type boolean
+<span class='line'>137</span>      * @default false
+<span class='line'>138</span>      */</span><span class="WHIT">
+<span class='line'>139</span> </span><span class="WHIT">    </span><span class="NAME">this.wrapX</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>140</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'>141</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>142</span>      * Flag indicating that the image should wrap vertically. The image wraps on tile
+<span class='line'>143</span>      * boundaries; so in order to get a seamless wrap at zoom level -n; the image height must
+<span class='line'>144</span>      * be evenly divisible by &lt;code>tileSize * 2^n&lt;/code>. Set the minZoom value appropriately.
+<span class='line'>145</span>      *
+<span class='line'>146</span>      * @type boolean
+<span class='line'>147</span>      * @default false
+<span class='line'>148</span>      */</span><span class="WHIT">
+<span class='line'>149</span> </span><span class="WHIT">    </span><span class="NAME">this.wrapY</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>150</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'>151</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>152</span>      * Base path for the image. This is filesystem dependent; but for the two most common cases
+<span class='line'>153</span>      * the following should be set
+<span class='line'>154</span>      *
+<span class='line'>155</span>      * &lt;ul>
+<span class='line'>156</span>      * &lt;li>&lt;b>archive&lt;/b>= The basePath is &lt;code>"&lt;path&gt;/bigshot.php?file=&lt;path-to-bigshot-archive-relative-to-bigshot.php&gt;"&lt;/code>;
+<span class='line'>157</span>      *     for example; &lt;code>"/bigshot.php?file=images/bigshot-sample.bigshot"&lt;/code>.
+<span class='line'>158</span>      * &lt;li>&lt;b>folder&lt;/b>= The basePath is &lt;code>"&lt;path-to-image-folder&gt;"&lt;/code>;
+<span class='line'>159</span>      *     for example; &lt;code>"/images/bigshot-sample"&lt;/code>.
+<span class='line'>160</span>      * &lt;/ul>
+<span class='line'>161</span>      *
+<span class='line'>162</span>      * @type String
+<span class='line'>163</span>      */</span><span class="WHIT">
+<span class='line'>164</span> </span><span class="WHIT">    </span><span class="NAME">this.basePath</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>165</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'>166</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>167</span>      * The file system type. Used to create a filesystem instance unless
+<span class='line'>168</span>      * the fileSystem field is set. Possible values are &lt;code>"archive"&lt;/code>, 
+<span class='line'>169</span>      * &lt;code>"folder"&lt;/code> or &lt;code>"dzi"&lt;/code>.
+<span class='line'>170</span>      *
+<span class='line'>171</span>      * @type String
+<span class='line'>172</span>      * @default "folder"
+<span class='line'>173</span>      */</span><span class="WHIT">
+<span class='line'>174</span> </span><span class="WHIT">    </span><span class="NAME">this.fileSystemType</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">"folder"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>175</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'>176</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>177</span>      * A reference to a filesystem implementation. If set; it overrides the
+<span class='line'>178</span>      * fileSystemType field.
+<span class='line'>179</span>      *
+<span class='line'>180</span>      * @default set depending on value of bigshot.ImageParameters.fileSystemType
+<span class='line'>181</span>      * @type bigshot.FileSystem
+<span class='line'>182</span>      */</span><span class="WHIT">
+<span class='line'>183</span> </span><span class="WHIT">    </span><span class="NAME">this.fileSystem</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>184</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'>185</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>186</span>      * Object used to load data files.
+<span class='line'>187</span>      *
+<span class='line'>188</span>      * @default bigshot.DefaultDataLoader
+<span class='line'>189</span>      * @type bigshot.DataLoader
+<span class='line'>190</span>      */</span><span class="WHIT">
+<span class='line'>191</span> </span><span class="WHIT">    </span><span class="NAME">this.dataLoader</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">bigshot.DefaultDataLoader</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>192</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'>193</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>194</span>      * Enable the touch-friendly ui. The touch-friendly UI splits the viewport into
+<span class='line'>195</span>      * three click-sensitive regions:
+<span class='line'>196</span>      * &lt;p style="text-align:center">&lt;img src="../images/touch-ui.png"/>&lt;/p>
+<span class='line'>197</span>      * 
+<span class='line'>198</span>      * &lt;p>Clicking (or tapping with a finger) on the outer region causes the viewport to zoom out.
+<span class='line'>199</span>      * Clicking anywhere within the middle, "pan", region centers the image on the spot clicked.
+<span class='line'>200</span>      * Finally, clicking in the center hotspot will center the image on the spot clicked and zoom
+<span class='line'>201</span>      * in half a zoom level.
 <span class='line'>202</span>      *
-<span class='line'>203</span>      * @see bigshot.Image#showTouchUI
+<span class='line'>203</span>      * &lt;p>As before, you can drag to pan anywhere.
 <span class='line'>204</span>      *
-<span class='line'>205</span>      * @type boolean
-<span class='line'>206</span>      * @default true
-<span class='line'>207</span>      * @deprecated Bigshot supports all common touch-gestures.
-<span class='line'>208</span>      */</span><span class="WHIT">
-<span class='line'>209</span> </span><span class="WHIT">    </span><span class="NAME">this.touchUI</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>210</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'>211</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">values</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>212</span> </span><span class="WHIT">        </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">k</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">values</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>213</span> </span><span class="WHIT">            </span><span class="KEYW">this</span><span class="PUNC">[</span><span class="NAME">k</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">values</span><span class="PUNC">[</span><span class="NAME">k</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>214</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>215</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>216</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'>217</span> </span><span class="WHIT">    </span><span class="NAME">this.merge</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">values</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">overwrite</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>218</span> </span><span class="WHIT">        </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">k</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">values</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>219</span> </span><span class="WHIT">            </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">overwrite</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="KEYW">this</span><span class="PUNC">[</span><span class="NAME">k</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>220</span> </span><span class="WHIT">                </span><span class="KEYW">this</span><span class="PUNC">[</span><span class="NAME">k</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">values</span><span class="PUNC">[</span><span class="NAME">k</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>221</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>222</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>223</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>224</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">        </span><span class="WHIT">
-<span class='line'>225</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>226</span> </span></pre></body></html>
+<span class='line'>205</span>      * &lt;p>If you have navigation tools for mouse users that hover over the image container, it 
+<span class='line'>206</span>      * is recommended that any click events on them are kept from bubbling, otherwise the click 
+<span class='line'>207</span>      * will propagate to the touch ui. One way is to use the 
+<span class='line'>208</span>      * {@link bigshot.Browser#stopMouseEventBubbling} method:
+<span class='line'>209</span>      *
+<span class='line'>210</span>      * @example
+<span class='line'>211</span>      * var browser = new bigshot.Browser ();
+<span class='line'>212</span>      * browser.stopMouseEventBubbling (document.getElementById ("myBigshotControlDiv"));
+<span class='line'>213</span>      *
+<span class='line'>214</span>      * @see bigshot.Image#showTouchUI
+<span class='line'>215</span>      *
+<span class='line'>216</span>      * @type boolean
+<span class='line'>217</span>      * @default true
+<span class='line'>218</span>      * @deprecated Bigshot supports all common touch-gestures.
+<span class='line'>219</span>      */</span><span class="WHIT">
+<span class='line'>220</span> </span><span class="WHIT">    </span><span class="NAME">this.touchUI</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>221</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'>222</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>223</span>      * Lets you "fling" the image.
+<span class='line'>224</span>      * 
+<span class='line'>225</span>      * @type boolean
+<span class='line'>226</span>      * @default true
+<span class='line'>227</span>      */</span><span class="WHIT">
+<span class='line'>228</span> </span><span class="WHIT">    </span><span class="NAME">this.fling</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>229</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'>230</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>231</span>      * The maximum amount that a tile will be stretched until we try to show
+<span class='line'>232</span>      * the next more detailed level.
+<span class='line'>233</span>      *
+<span class='line'>234</span>      * @type float
+<span class='line'>235</span>      * @default 1.0
+<span class='line'>236</span>      */</span><span class="WHIT">
+<span class='line'>237</span> </span><span class="WHIT">    </span><span class="NAME">this.maxTextureMagnification</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">1.0</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>238</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'>239</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">values</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>240</span> </span><span class="WHIT">        </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">k</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">values</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>241</span> </span><span class="WHIT">            </span><span class="KEYW">this</span><span class="PUNC">[</span><span class="NAME">k</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">values</span><span class="PUNC">[</span><span class="NAME">k</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>242</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>243</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>244</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'>245</span> </span><span class="WHIT">    </span><span class="NAME">this.merge</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">values</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">overwrite</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>246</span> </span><span class="WHIT">        </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">k</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">values</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>247</span> </span><span class="WHIT">            </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">overwrite</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="KEYW">this</span><span class="PUNC">[</span><span class="NAME">k</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>248</span> </span><span class="WHIT">                </span><span class="KEYW">this</span><span class="PUNC">[</span><span class="NAME">k</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">values</span><span class="PUNC">[</span><span class="NAME">k</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>249</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>250</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>251</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>252</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">        </span><span class="WHIT">
+<span class='line'>253</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>254</span> </span></pre></body></html>

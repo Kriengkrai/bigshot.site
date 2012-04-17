@@ -349,6 +349,15 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/bigshot.VRRenderer.html#beginRender">beginRender</a></b>(y, p, fov, tx, ty, tz, oy, op, or)
+								</div>
+								<div class="description">Called to begin a render.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/bigshot.VRRenderer.html#createTexturedQuad">createTexturedQuad</a></b>(p, u, v, texture)
 								</div>
 								<div class="description">Creates a bigshot.TexturedQuad.</div>
@@ -376,6 +385,24 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/bigshot.VRRenderer.html#endRender">endRender</a></b>()
+								</div>
+								<div class="description">Called to end a render.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/bigshot.VRRenderer.html#getElement">getElement</a></b>()
+								</div>
+								<div class="description">Gets the container element for the renderer.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/bigshot.VRRenderer.html#getViewportHeight">getViewportHeight</a></b>()
 								</div>
 								<div class="description">Returns the viewport height, in pixels.</div>
@@ -388,6 +415,33 @@ ul.inheritsList
 								<div class="fixedFont"><b><a href="../symbols/bigshot.VRRenderer.html#getViewportWidth">getViewportWidth</a></b>()
 								</div>
 								<div class="description">Returns the viewport width, in pixels.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/bigshot.VRRenderer.html#transformToScreen">transformToScreen</a></b>(vector)
+								</div>
+								<div class="description">Transforms a 3D vector to screen coordinates.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/bigshot.VRRenderer.html#transformToWorld">transformToWorld</a></b>(v)
+								</div>
+								<div class="description">Transforms a vector to world coordinates.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/bigshot.VRRenderer.html#transformWorldToScreen">transformWorldToScreen</a></b>(worldVector)
+								</div>
+								<div class="description">Transforms a worl vector to screen coordinates.</div>
 							</td>
 						</tr>
 					
@@ -438,6 +492,90 @@ ul.inheritsList
 				<div class="sectionTitle">
 					Method Detail
 				</div>
+				
+					<a name="beginRender"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>beginRender</b>(y, p, fov, tx, ty, tz, oy, op, or)
+					
+					</div>
+					<div class="description">
+						Called to begin a render.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>y</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>p</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>fov</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>tx</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ty</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>tz</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>oy</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>op</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>or</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
 				
 					<a name="createTexturedQuad"> </a>
 					<div class="fixedFont">
@@ -566,6 +704,56 @@ ul.inheritsList
 
 					<hr />
 				
+					<a name="endRender"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>endRender</b>()
+					
+					</div>
+					<div class="description">
+						Called to end a render.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getElement"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getElement</b>()
+					
+					</div>
+					<div class="description">
+						Gets the container element for the renderer. This is usedwhen calling the requestAnimationFrame API.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
 					<a name="getViewportHeight"> </a>
 					<div class="fixedFont">
 					
@@ -614,6 +802,114 @@ ul.inheritsList
 						
 						
 
+					<hr />
+				
+					<a name="transformToScreen"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>transformToScreen</b>(vector)
+					
+					</div>
+					<div class="description">
+						Transforms a 3D vector to screen coordinates.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number[4]|number[3]}</span> <b>vector</b>
+									
+								</dt>
+								<dd>the vector to transform. If it is already in homogenous coordinates (4-element array) the transformation is faster. Otherwise it will be converted.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="transformToWorld"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>transformToWorld</b>(v)
+					
+					</div>
+					<div class="description">
+						Transforms a vector to world coordinates.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>v</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="transformWorldToScreen"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>transformWorldToScreen</b>(worldVector)
+					
+					</div>
+					<div class="description">
+						Transforms a worl vector to screen coordinates.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>worldVector</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
 					
 				
 			
@@ -628,7 +924,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Apr 15 2012 22:43:06 GMT+0200 (CEST)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Apr 17 2012 22:22:30 GMT+0200 (CEST)
 		</div>
 	</body>
 </html>
