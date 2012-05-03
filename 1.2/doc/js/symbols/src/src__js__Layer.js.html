@@ -58,15 +58,16 @@
 <span class='line'> 51</span>      * Lays out the layer.
 <span class='line'> 52</span>      *
 <span class='line'> 53</span>      * @param {number} zoom the zoom level
-<span class='line'> 54</span>      * @param {number} x0 the x-coordinate of the top-left corner of the top-left tile
-<span class='line'> 55</span>      * @param {number} y0 the y-coordinate of the top-left corner of the top-left tile
+<span class='line'> 54</span>      * @param {number} x0 the x-coordinate of the top-left corner of the top-left tile in css pixels
+<span class='line'> 55</span>      * @param {number} y0 the y-coordinate of the top-left corner of the top-left tile in css pixels
 <span class='line'> 56</span>      * @param {number} tx0 column number (starting at zero) of the top-left tile
 <span class='line'> 57</span>      * @param {number} ty0 row number (starting at zero) of the top-left tile
-<span class='line'> 58</span>      * @param {number} size tileSize
-<span class='line'> 59</span>      * @param {number} stride offset (vertical and horizontal) from the top-left corner
-<span class='line'> 60</span>      *                 of a tile to the next tile's top-left corner.
-<span class='line'> 61</span>      * @param {number} opacity the opacity of the layer.
-<span class='line'> 62</span>      */</span><span class="WHIT">
-<span class='line'> 63</span> </span><span class="WHIT">    </span><span class="NAME">layout</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">zoom</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">x0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">y0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">tx0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ty0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">size</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">stride</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">opacity</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'> 64</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 65</span> </span></pre></body></html>
+<span class='line'> 58</span>      * @param {number} size the {@link bigshot.ImageParameters#tileSize} - width of each 
+<span class='line'> 59</span>      *                 image tile in pixels - of the image
+<span class='line'> 60</span>      * @param {number} stride offset (vertical and horizontal) from the top-left corner
+<span class='line'> 61</span>      *                 of a tile to the next tile's top-left corner.
+<span class='line'> 62</span>      * @param {number} opacity the opacity of the layer as a CSS opacity value.
+<span class='line'> 63</span>      */</span><span class="WHIT">
+<span class='line'> 64</span> </span><span class="WHIT">    </span><span class="NAME">layout</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">zoom</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">x0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">y0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">tx0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">ty0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">size</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">stride</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">opacity</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 65</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 66</span> </span></pre></body></html>

@@ -227,7 +227,11 @@ ul.inheritsList
 	
 	<li><a href="../symbols/bigshot.HotspotLayer.html">bigshot.HotspotLayer</a></li>
 	
+	<li><a href="../symbols/bigshot.HTMLElementLayer.html">bigshot.HTMLElementLayer</a></li>
+	
 	<li><a href="../symbols/bigshot.Image.html">bigshot.Image</a></li>
+	
+	<li><a href="../symbols/bigshot.ImageBase.html">bigshot.ImageBase</a></li>
 	
 	<li><a href="../symbols/bigshot.ImageParameters.html">bigshot.ImageParameters</a></li>
 	
@@ -244,6 +248,10 @@ ul.inheritsList
 	<li><a href="../symbols/bigshot.LRUMap.html">bigshot.LRUMap</a></li>
 	
 	<li><a href="../symbols/bigshot.object.html">bigshot.object</a></li>
+	
+	<li><a href="../symbols/bigshot.SimpleFileSystem.html">bigshot.SimpleFileSystem</a></li>
+	
+	<li><a href="../symbols/bigshot.SimpleImage.html">bigshot.SimpleImage</a></li>
 	
 	<li><a href="../symbols/bigshot.TexturedQuad.html">bigshot.TexturedQuad</a></li>
 	
@@ -296,6 +304,8 @@ ul.inheritsList
 <!-- ============================== class summary ========================== -->			
 			<p class="description">
 				
+				<br />Extends
+					<a href="../symbols/bigshot.ImageBase.html">bigshot.ImageBase</a>.<br />
 				
 			
 				A tiled, zoomable image viewer.<h3 id="creating-a-wrapping-image">Creating a Wrapping Image</h3><p>If you have set the wrapX or wrapY parameters in the <a href="../symbols/bigshot.ImageParameters.html">bigshot.ImageParameters</a>, the image must be an integer multiple of the tile size at the desired minimum zoom level, otherwisethere will be a gap at the wrap point:<p>The way to figure out the proper input size is this:<ol><li><p>Decide on a tile size and call this <i>tileSize</i>.</p></li><li><p>Decide on a minimum integer zoom level, and call this <i>minZoom</i>.</p></li><li><p>Compute <i>tileSize * 2<sup>-minZoom</sup></i>, call this <i>S</i>.</p></li><li><p>The source image size along the wrapped axis must be evenly divisible by <i>S</i>.</p></li></ol><p>An example:</p><ol><li><p>I have an image that is 23148x3242 pixels.</p></li><li><p>I chose 256x256 pixel tiles: <i>tileSize = 256</i>.</p></li><li><p>When displaying the image, I want the user to be able to zoom out so that the whole image is less than or equal to 600 pixels tall. Since the image is 3242 pixels tall originally, I will need a <i>minZoom</i> of -3. A <i>minZoom</i> of -2 would only let mezoom out to 1/4 (2<sup>-2</sup>), or an image that is 810 pixels tall. A <i>minZoom</i> of -3, however lets mezoom out to 1/8 (2<sup>-3</sup>), or an image that is 405 pixels tall. Thus: <i>minZoom = -3</i></p></li><li><p>Computing <i>S</i> gives: <i>S = 256 * 2<sup>3</sup> = 256 * 8 = 2048</i></p></li><li><p>I want it to wrap along the X axis. Therefore I may have to adjust the width, currently 23148 pixels.</p></li><li><p>Rounding 23148 down to the nearest multiple of 2048 gives 22528. (23148 divided by 2048 is 11.3, and 11 times 2048 is 22528.)</p></li><li><p>I will shrink my source image to be 22528 pixels wide before building the image pyramid,and I will set the <code>minZoom</code> parameter to -3 in the <a href="../symbols/bigshot.ImageParameters.html">bigshot.ImageParameters</a> when creatingthe image. (I will also set <code>wrapX</code> to <code>true</code>.)</p></li></ol>
@@ -336,308 +346,11 @@ ul.inheritsList
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class bigshot.Image.">
-					<caption>Method Summary</caption>
-					<thead>
-						<tr>
-							<th scope="col">Method Attributes</th>
-							<th scope="col">Method Name and Description</th>
-						</tr>
-					</thead>
-					<tbody>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#addLayer">addLayer</a></b>(layer)
-								</div>
-								<div class="description">Adds a new layer to the image.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#createLayerContainer">createLayerContainer</a></b>()
-								</div>
-								<div class="description">Creates a HTML div container for a layer.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#dispose">dispose</a></b>()
-								</div>
-								<div class="description">Unregisters event handlers and other page-level hooks.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#exitFullScreen">exitFullScreen</a></b>()
-								</div>
-								<div class="description">Forces exit from full screen mode, if we're there.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#fitZoom">fitZoom</a></b>(imageDimension, containerDimension)
-								</div>
-								<div class="description">Helper function for calculating zoom levels.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#flyTo">flyTo</a></b>(x, y, zoom)
-								</div>
-								<div class="description">Smoothly flies to the specified position.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#flyZoomToFit">flyZoomToFit</a></b>()
-								</div>
-								<div class="description">Smoothly adjust the zoom level to fit the full image in the viewport.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#flyZoomToFitHeight">flyZoomToFitHeight</a></b>()
-								</div>
-								<div class="description">Smoothly adjust the zoom level to fit the image height in the viewport.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#flyZoomToFitWidth">flyZoomToFitWidth</a></b>()
-								</div>
-								<div class="description">Smoothly adjust the zoom level to fit the image width in the viewport.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#fullScreen">fullScreen</a></b>(onClose)
-								</div>
-								<div class="description">Maximizes the image to cover the browser viewport.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#getContainer">getContainer</a></b>()
-								</div>
-								<div class="description">Returns the div element used as viewport.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#getMaxZoom">getMaxZoom</a></b>()
-								</div>
-								<div class="description">Gets the maximum zoom value.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#getMinZoom">getMinZoom</a></b>()
-								</div>
-								<div class="description">Gets the minimum zoom value.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#getTouchAreaBaseSize">getTouchAreaBaseSize</a></b>()
-								</div>
-								<div class="description">Returns the base size in screen pixels of the two zoom touch areas.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#getX">getX</a></b>()
-								</div>
-								<div class="description">Returns the current x-coordinate, which is the full-image x coordinatein the center of the viewport.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#getY">getY</a></b>()
-								</div>
-								<div class="description">Returns the current y-coordinate, which is the full-image x coordinatein the center of the viewport.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#getZoom">getZoom</a></b>()
-								</div>
-								<div class="description">Returns the current zoom level.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#getZoomToFillValue">getZoomToFillValue</a></b>()
-								</div>
-								<div class="description">Returns the zoom level at which the image fills the wholeviewport.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#getZoomToFitValue">getZoomToFitValue</a></b>()
-								</div>
-								<div class="description">Returns the maximum zoom level at which the full imageis visible in the viewport.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#layout">layout</a></b>()
-								</div>
-								<div class="description">Lays out all layers according to the current x, y and zoom values.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#moveTo">moveTo</a></b>(x, y, zoom, updateViewport)
-								</div>
-								<div class="description">Stops any current flyTo operation and sets the current position.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#onresize">onresize</a></b>()
-								</div>
-								<div class="description">Triggers a right-sizing of all layers.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#rectVisibleAtZoomLevel">rectVisibleAtZoomLevel</a></b>(w, h)
-								</div>
-								<div class="description">Returns the maximum zoom level at which a rectangle with the given dimensionsfit into the viewport.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#resize">resize</a></b>()
-								</div>
-								<div class="description">Resizes the layers of this image.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#setMaxZoom">setMaxZoom</a></b>(maxZoom)
-								</div>
-								<div class="description">Sets the maximum zoom value.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#setMinZoom">setMinZoom</a></b>(minZoom)
-								</div>
-								<div class="description">Sets the minimum zoom value.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#showTouchUI">showTouchUI</a></b>(delay, fadeOut)
-								</div>
-								<div class="description">Briefly shows the touch ui zones.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#stopFlying">stopFlying</a></b>()
-								</div>
-								<div class="description">Interrupts the current #flyTo, if one is active.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#zoomToFill">zoomToFill</a></b>()
-								</div>
-								<div class="description">Adjust the zoom level to fit the image in the viewport.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#zoomToFit">zoomToFit</a></b>()
-								</div>
-								<div class="description">Adjust the zoom level to fit the image in the viewport.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#zoomToFitHeight">zoomToFitHeight</a></b>()
-								</div>
-								<div class="description">Adjust the zoom level to fit the image height in the viewport.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.Image.html#zoomToFitWidth">zoomToFitWidth</a></b>()
-								</div>
-								<div class="description">Adjust the zoom level to fit the image width in the viewport.</div>
-							</td>
-						</tr>
-					
-					</tbody>
-				</table>
 				
 				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/bigshot.ImageBase.html">bigshot.ImageBase</a>: </dt><dd><a href="../symbols/bigshot.ImageBase.html#addLayer">addLayer</a>, <a href="../symbols/bigshot.ImageBase.html#createLayerContainer">createLayerContainer</a>, <a href="../symbols/bigshot.ImageBase.html#dispose">dispose</a>, <a href="../symbols/bigshot.ImageBase.html#exitFullScreen">exitFullScreen</a>, <a href="../symbols/bigshot.ImageBase.html#fitZoom">fitZoom</a>, <a href="../symbols/bigshot.ImageBase.html#flyTo">flyTo</a>, <a href="../symbols/bigshot.ImageBase.html#flyZoomToFit">flyZoomToFit</a>, <a href="../symbols/bigshot.ImageBase.html#flyZoomToFitHeight">flyZoomToFitHeight</a>, <a href="../symbols/bigshot.ImageBase.html#flyZoomToFitWidth">flyZoomToFitWidth</a>, <a href="../symbols/bigshot.ImageBase.html#fullScreen">fullScreen</a>, <a href="../symbols/bigshot.ImageBase.html#getContainer">getContainer</a>, <a href="../symbols/bigshot.ImageBase.html#getMaxZoom">getMaxZoom</a>, <a href="../symbols/bigshot.ImageBase.html#getMinZoom">getMinZoom</a>, <a href="../symbols/bigshot.ImageBase.html#getTouchAreaBaseSize">getTouchAreaBaseSize</a>, <a href="../symbols/bigshot.ImageBase.html#getX">getX</a>, <a href="../symbols/bigshot.ImageBase.html#getY">getY</a>, <a href="../symbols/bigshot.ImageBase.html#getZoom">getZoom</a>, <a href="../symbols/bigshot.ImageBase.html#getZoomToFillValue">getZoomToFillValue</a>, <a href="../symbols/bigshot.ImageBase.html#getZoomToFitValue">getZoomToFitValue</a>, <a href="../symbols/bigshot.ImageBase.html#layout">layout</a>, <a href="../symbols/bigshot.ImageBase.html#moveTo">moveTo</a>, <a href="../symbols/bigshot.ImageBase.html#onresize">onresize</a>, <a href="../symbols/bigshot.ImageBase.html#rectVisibleAtZoomLevel">rectVisibleAtZoomLevel</a>, <a href="../symbols/bigshot.ImageBase.html#resize">resize</a>, <a href="../symbols/bigshot.ImageBase.html#setMaxZoom">setMaxZoom</a>, <a href="../symbols/bigshot.ImageBase.html#setMinZoom">setMinZoom</a>, <a href="../symbols/bigshot.ImageBase.html#showTouchUI">showTouchUI</a>, <a href="../symbols/bigshot.ImageBase.html#stopFlying">stopFlying</a>, <a href="../symbols/bigshot.ImageBase.html#zoomToFill">zoomToFill</a>, <a href="../symbols/bigshot.ImageBase.html#zoomToFit">zoomToFit</a>, <a href="../symbols/bigshot.ImageBase.html#zoomToFitHeight">zoomToFitHeight</a>, <a href="../symbols/bigshot.ImageBase.html#zoomToFitWidth">zoomToFitWidth</a></dd>
+				</dl>
 				
 			
 <!-- ============================== events summary ======================== -->
@@ -655,7 +368,7 @@ ul.inheritsList
 				</div>
 				
 				<div class="description">
-					Creates a new tiled image viewer. (Note: See <a href="../symbols/bigshot.Image.html#dispose">bigshot.Image#dispose</a> for important information.)
+					Creates a new tiled image viewer. (Note: See bigshot.Image#dispose for important information.)
 					
 				</div>
 				
@@ -687,7 +400,7 @@ ul.inheritsList
 						<dl class="detailList">
 						<dt class="heading">See:</dt>
 						
-							<dd><a href="../symbols/bigshot.Image.html#dispose">bigshot.Image#dispose</a></dd>
+							<dd><a href="../symbols/bigshot.ImageBase.html#dispose">bigshot.ImageBase#dispose</a></dd>
 						
 						</dl>
 					
@@ -700,986 +413,6 @@ ul.inheritsList
 
 <!-- ============================== method details ========================= -->		
 			
-				<div class="sectionTitle">
-					Method Detail
-				</div>
-				
-					<a name="addLayer"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>addLayer</b>(layer)
-					
-					</div>
-					<div class="description">
-						Adds a new layer to the image.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{<a href="../symbols/bigshot.Layer.html">bigshot.Layer</a>}</span> <b>layer</b>
-									
-								</dt>
-								<dd>the layer to add.</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">See:</dt>
-							
-								<dd><a href="../symbols/bigshot.HotspotLayer.html">bigshot.HotspotLayer</a> for usage example</dd>
-							
-							</dl>
-						
-
-					<hr />
-				
-					<a name="createLayerContainer"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{HTMLDivElement}</span>
-					<b>createLayerContainer</b>()
-					
-					</div>
-					<div class="description">
-						Creates a HTML div container for a layer. This methodis called by the layer's constructor to obtain a container.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="dispose"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>dispose</b>()
-					
-					</div>
-					<div class="description">
-						Unregisters event handlers and other page-level hooks. The client need not call thismethod unless bigshot images are created and removed from the pagedynamically. In that case, this method must be called when the client wishes tofree the resources allocated by the image. Otherwise the browser will garbage-collectall resources automatically.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="exitFullScreen"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>exitFullScreen</b>()
-					
-					</div>
-					<div class="description">
-						Forces exit from full screen mode, if we're there.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="fitZoom"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>fitZoom</b>(imageDimension, containerDimension)
-					
-					</div>
-					<div class="description">
-						Helper function for calculating zoom levels.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{number}</span> <b>imageDimension</b>
-									
-								</dt>
-								<dd>the image dimension in full-image pixels</dd>
-							
-								<dt>
-									<span class="light fixedFont">{number}</span> <b>containerDimension</b>
-									
-								</dt>
-								<dd>the container dimension in screen pixels</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd>the zoom level at which the given number of full-image pixelsoccupy the given number of screen pixels.</dd>
-							
-							</dl>
-						
-						
-						
-
-					<hr />
-				
-					<a name="flyTo"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>flyTo</b>(x, y, zoom)
-					
-					</div>
-					<div class="description">
-						Smoothly flies to the specified position.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{number}</span> <b>x</b>
-									<i>Optional</i>
-								</dt>
-								<dd>the new x-coordinate</dd>
-							
-								<dt>
-									<span class="light fixedFont">{number}</span> <b>y</b>
-									<i>Optional</i>
-								</dt>
-								<dd>the new y-coordinate</dd>
-							
-								<dt>
-									<span class="light fixedFont">{number}</span> <b>zoom</b>
-									<i>Optional</i>
-								</dt>
-								<dd>the new zoom level</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="flyZoomToFit"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>flyZoomToFit</b>()
-					
-					</div>
-					<div class="description">
-						Smoothly adjust the zoom level to fit the full image in the viewport.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="flyZoomToFitHeight"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>flyZoomToFitHeight</b>()
-					
-					</div>
-					<div class="description">
-						Smoothly adjust the zoom level to fit the image height in the viewport.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="flyZoomToFitWidth"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>flyZoomToFitWidth</b>()
-					
-					</div>
-					<div class="description">
-						Smoothly adjust the zoom level to fit the image width in the viewport.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="fullScreen"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>fullScreen</b>(onClose)
-					
-					</div>
-					<div class="description">
-						Maximizes the image to cover the browser viewport.The container div is removed from its parent node upon entering full screen mode. When leaving full screen mode, the containeris appended to its old parent node. To avoid rearranging thenodes, wrap the container in an extra div.<p>For unknown reasons (probably security), browsers willnot let you open a window that covers the entire screen.Even when specifying "fullscreen=yes", all you get is a windowthat has a title bar and only covers the desktop (not any taskbars or the like). For now, this is the best that I can do,but should the situation change I'll update this to befull-screen<i>-ier</i>.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>onClose</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="getContainer"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{HTMLDivElement}</span>
-					<b>getContainer</b>()
-					
-					</div>
-					<div class="description">
-						Returns the div element used as viewport.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="getMaxZoom"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{number}</span>
-					<b>getMaxZoom</b>()
-					
-					</div>
-					<div class="description">
-						Gets the maximum zoom value. The maximum magnification (of the full-size image)is 2<sup>maxZoom</sup>.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="getMinZoom"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{number}</span>
-					<b>getMinZoom</b>()
-					
-					</div>
-					<div class="description">
-						Gets the minimum zoom value. The minimum magnification (of the full-size image)is 2<sup>minZoom</sup>, so a minZoom of <code>-3</code> means that the smallestimage shown will be one-eighth of the full-size image.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="getTouchAreaBaseSize"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{number}</span>
-					<b>getTouchAreaBaseSize</b>()
-					
-					</div>
-					<div class="description">
-						Returns the base size in screen pixels of the two zoom touch areas.The zoom out border will be getTouchAreaBaseSize() pixels wide,and the center zoom in hotspot will be 2*getTouchAreaBaseSize() pixels wideand tall.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="getX"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{number}</span>
-					<b>getX</b>()
-					
-					</div>
-					<div class="description">
-						Returns the current x-coordinate, which is the full-image x coordinatein the center of the viewport.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="getY"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{number}</span>
-					<b>getY</b>()
-					
-					</div>
-					<div class="description">
-						Returns the current y-coordinate, which is the full-image x coordinatein the center of the viewport.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="getZoom"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{number}</span>
-					<b>getZoom</b>()
-					
-					</div>
-					<div class="description">
-						Returns the current zoom level.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="getZoomToFillValue"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>getZoomToFillValue</b>()
-					
-					</div>
-					<div class="description">
-						Returns the zoom level at which the image fills the wholeviewport.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="getZoomToFitValue"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>getZoomToFitValue</b>()
-					
-					</div>
-					<div class="description">
-						Returns the maximum zoom level at which the full imageis visible in the viewport.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="layout"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>layout</b>()
-					
-					</div>
-					<div class="description">
-						Lays out all layers according to the current x, y and zoom values.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="moveTo"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>moveTo</b>(x, y, zoom, updateViewport)
-					
-					</div>
-					<div class="description">
-						Stops any current flyTo operation and sets the current position.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<b>x</b>
-									<i>Optional</i>
-								</dt>
-								<dd>the new x-coordinate</dd>
-							
-								<dt>
-									<b>y</b>
-									<i>Optional</i>
-								</dt>
-								<dd>the new y-coordinate</dd>
-							
-								<dt>
-									<b>zoom</b>
-									<i>Optional</i>
-								</dt>
-								<dd>the new zoom level</dd>
-							
-								<dt>
-									<b>updateViewport</b>
-									<i>Optional</i>
-								</dt>
-								<dd>if the viewport should be updated, defaults to <code>true</code></dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="onresize"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>onresize</b>()
-					
-					</div>
-					<div class="description">
-						Triggers a right-sizing of all layers.Called on window resize via the bigshot.Image#onresizeHandler stub.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="rectVisibleAtZoomLevel"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>rectVisibleAtZoomLevel</b>(w, h)
-					
-					</div>
-					<div class="description">
-						Returns the maximum zoom level at which a rectangle with the given dimensionsfit into the viewport.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{number}</span> <b>w</b>
-									
-								</dt>
-								<dd>the width of the rectangle, given in full-image pixels</dd>
-							
-								<dt>
-									<span class="light fixedFont">{number}</span> <b>h</b>
-									
-								</dt>
-								<dd>the height of the rectangle, given in full-image pixels</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="resize"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>resize</b>()
-					
-					</div>
-					<div class="description">
-						Resizes the layers of this image.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="setMaxZoom"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>setMaxZoom</b>(maxZoom)
-					
-					</div>
-					<div class="description">
-						Sets the maximum zoom value. The maximum magnification (of the full-size image)is 2<sup>maxZoom</sup>. Set to 0.0 to avoid pixelation.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{number}</span> <b>maxZoom</b>
-									
-								</dt>
-								<dd>the maximum zoom value</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="setMinZoom"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>setMinZoom</b>(minZoom)
-					
-					</div>
-					<div class="description">
-						Sets the minimum zoom value. The minimum magnification (of the full-size image)is 2<sup>minZoom</sup>, so a minZoom of <code>-3</code> means that the smallestimage shown will be one-eighth of the full-size image.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{number}</span> <b>minZoom</b>
-									
-								</dt>
-								<dd>the minimum zoom value for this image</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="showTouchUI"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>showTouchUI</b>(delay, fadeOut)
-					
-					</div>
-					<div class="description">
-						Briefly shows the touch ui zones. See the <a href="../symbols/bigshot.ImageParameters.html#touchUI">bigshot.ImageParameters#touchUI</a>documentation for an explanation of the touch ui.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{int}</span> <b>delay</b>
-									<i>Optional</i>
-								</dt>
-								<dd>milliseconds before fading out</dd>
-							
-								<dt>
-									<span class="light fixedFont">{int}</span> <b>fadeOut</b>
-									<i>Optional</i>
-								</dt>
-								<dd>milliseconds to fade out the zone overlays in</dd>
-							
-							</dl>
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Deprecated:</dt>
-							<dt>
-								All common touch gestures are supported by default.
-							</dt>
-							</dl>
-						
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">See:</dt>
-							
-								<dd><a href="../symbols/bigshot.ImageParameters.html#touchUI">bigshot.ImageParameters#touchUI</a></dd>
-							
-							</dl>
-						
-
-					<hr />
-				
-					<a name="stopFlying"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>stopFlying</b>()
-					
-					</div>
-					<div class="description">
-						Interrupts the current #flyTo, if one is active.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="zoomToFill"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>zoomToFill</b>()
-					
-					</div>
-					<div class="description">
-						Adjust the zoom level to fit the image in the viewport.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="zoomToFit"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>zoomToFit</b>()
-					
-					</div>
-					<div class="description">
-						Adjust the zoom level to fit the image in the viewport.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="zoomToFitHeight"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>zoomToFitHeight</b>()
-					
-					</div>
-					<div class="description">
-						Adjust the zoom level to fit the image height in the viewport.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="zoomToFitWidth"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>zoomToFitWidth</b>()
-					
-					</div>
-					<div class="description">
-						Adjust the zoom level to fit the image width in the viewport.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					
-				
-			
 			
 <!-- ============================== event details ========================= -->		
 			
@@ -1691,7 +424,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Apr 17 2012 22:22:29 GMT+0200 (CEST)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu May 03 2012 15:49:23 GMT+0200 (CEST)
 		</div>
 	</body>
 </html>
