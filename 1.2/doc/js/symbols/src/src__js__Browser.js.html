@@ -160,10 +160,10 @@
 <span class='line'>153</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
 <span class='line'>154</span> </span><span class="WHIT">    </span><span class="WHIT">
 <span class='line'>155</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'>156</span>         * Stops bubbling for all mouse events on the element.
-<span class='line'>157</span>         *
-<span class='line'>158</span>         * @param {HTMLElement} element the element
-<span class='line'>159</span>         */</span><span class="WHIT">
+<span class='line'>156</span>      * Stops bubbling for all mouse events on the element.
+<span class='line'>157</span>      *
+<span class='line'>158</span>      * @param {HTMLElement} element the element
+<span class='line'>159</span>      */</span><span class="WHIT">
 <span class='line'>160</span> </span><span class="WHIT">    </span><span class="NAME">stopMouseEventBubbling</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">element</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
 <span class='line'>161</span> </span><span class="WHIT">        </span><span class="NAME">this.registerListener</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">element</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"mousedown"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">this.stopEventBubblingHandler</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>162</span> </span><span class="WHIT">        </span><span class="NAME">this.registerListener</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">element</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"mouseup"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">this.stopEventBubblingHandler</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">

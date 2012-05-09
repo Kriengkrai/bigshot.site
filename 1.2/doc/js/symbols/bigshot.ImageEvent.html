@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>bigshot.DataLoader - Bigshot 1.2</title>
+		<title>bigshot.ImageEvent - Bigshot 1.2</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -312,17 +312,19 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class bigshot.DataLoader
+				Class bigshot.ImageEvent
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
 			
+				<p class="extendsList">Extends
+					<a href="../symbols/bigshot.Event.html">bigshot.Event</a>.</p>
 				
             <p class="description">
-				Abstract base.
+				Base class for events dispatched by bigshot.ImageBase.
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/src__js__DataLoader.js.html">DataLoader.js</a>.
+					<br /><i>Defined in: </i> <a href="../symbols/src/src__js__ImageEvent.js.html">ImageEvent.js</a>.
 				
 
                 
@@ -330,7 +332,7 @@ ul.inheritsList
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class bigshot.DataLoader.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class bigshot.ImageEvent.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -343,9 +345,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/bigshot.DataLoader.html#constructor">bigshot.DataLoader</a></b>()
+								<b><a href="../symbols/bigshot.ImageEvent.html#constructor">bigshot.ImageEvent</a></b>(data)
 							</div>
-							<div class="description"></div>
+							<div class="description">Creates an image event.</div>
 						</td>
 					</tr>
 				</tbody>
@@ -354,17 +356,14 @@ ul.inheritsList
 
 <!-- ============================== properties summary ===================== -->
 			
-
-<!-- ============================== methods summary ======================== -->
-			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class bigshot.DataLoader.">
-					<caption>Method Summary</caption>
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class bigshot.ImageEvent.">
+					<caption>Field Summary</caption>
 					<thead>
 						<tr>
-							<th scope="col">Method Attributes</th>
-							<th scope="col">Method Name and Description</th>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -372,18 +371,60 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.DataLoader.html#loadImage">loadImage</a></b>(url, onloaded)
+								<div class="fixedFont">
+								<b><a href="../symbols/bigshot.ImageEvent.html#clientX">clientX</a></b>
 								</div>
-								<div class="description">Loads an image.</div>
+								<div class="description">The client X coordinate of the event, if any.</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.DataLoader.html#loadXml">loadXml</a></b>(url, async, onloaded)
+								<div class="fixedFont">
+								<b><a href="../symbols/bigshot.ImageEvent.html#clientY">clientY</a></b>
 								</div>
-								<div class="description">Loads the xml.</div>
+								<div class="description">The client Y coordinate of the event, if any.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/bigshot.ImageEvent.html#imageX">imageX</a></b>
+								</div>
+								<div class="description">The image X coordinate of the event, if any.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/bigshot.ImageEvent.html#imageY">imageY</a></b>
+								</div>
+								<div class="description">The image Y coordinate of the event, if any.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/bigshot.ImageEvent.html#localX">localX</a></b>
+								</div>
+								<div class="description">The local X coordinate of the event, if any.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/bigshot.ImageEvent.html#localY">localY</a></b>
+								</div>
+								<div class="description">The local Y coordinate of the event, if any.</div>
 							</td>
 						</tr>
 					
@@ -391,6 +432,22 @@ ul.inheritsList
 				</table>
 				
 				
+				
+				<dl class="inheritsList">
+				<dt>Fields borrowed from class <a href="../symbols/bigshot.Event.html">bigshot.Event</a>: </dt><dd><a href="../symbols/bigshot.Event.html#bubbles">bubbles</a>, <a href="../symbols/bigshot.Event.html#cancelable">cancelable</a>, <a href="../symbols/bigshot.Event.html#currentTarget">currentTarget</a>, <a href="../symbols/bigshot.Event.html#defaultPrevented">defaultPrevented</a>, <a href="../symbols/bigshot.Event.html#isTrusted">isTrusted</a>, <a href="../symbols/bigshot.Event.html#target">target</a>, <a href="../symbols/bigshot.Event.html#timeStamp">timeStamp</a>, <a href="../symbols/bigshot.Event.html#type">type</a></dd>
+				</dl>
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Methods borrowed from class <a href="../symbols/bigshot.Event.html">bigshot.Event</a>: </dt><dd><a href="../symbols/bigshot.Event.html#preventDefault">preventDefault</a></dd>
+				</dl>
 				
 			
 <!-- ============================== events summary ======================== -->
@@ -404,11 +461,11 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>bigshot.DataLoader</b>()
+						<b>bigshot.ImageEvent</b>(data)
 				</div>
 				
 				<div class="description">
-					
+					Creates an image event.
 					
 				</div>
 				
@@ -416,11 +473,29 @@ ul.inheritsList
 				
 				
 					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{Object}</span>  <b>data</b>
+								
+							</dt>
+								<dd>a data object whose fields will be used to set the corresponding fields of the event object.</dd>
+						
+						</dl>
 					
 					
 					
 					
 					
+					
+					
+						<dl class="detailList">
+						<dt class="heading">See:</dt>
+						
+							<dd><a href="../symbols/bigshot.ImageBase.html">bigshot.ImageBase</a></dd>
+						
+						</dl>
 					
 
 			</div>
@@ -428,48 +503,25 @@ ul.inheritsList
 
 <!-- ============================== field details ========================== -->		
 			
-
-<!-- ============================== method details ========================= -->		
-			
 				<div class="sectionTitle">
-					Method Detail
+					Field Detail
 				</div>
 				
-					<a name="loadImage"> </a>
+					<a name="clientX"> </a>
 					<div class="fixedFont">
 					
-					
-					<b>loadImage</b>(url, onloaded)
+					<span class="light">{number}</span>
+					<b>clientX</b>
 					
 					</div>
 					<div class="description">
-						Loads an image.
+						The client X coordinate of the event, if any.
 						
 						
 					</div>
 					
 					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>url</b>
-									
-								</dt>
-								<dd>the url to load</dd>
-							
-								<dt>
-									<span class="light fixedFont">{function(success|img)}</span> <b>onloaded</b>
-									
-								</dt>
-								<dd>called on complete</dd>
-							
-							</dl>
-						
-						
-						
+
 						
 						
 						
@@ -477,61 +529,119 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="loadXml"> </a>
+					<a name="clientY"> </a>
 					<div class="fixedFont">
 					
-					
-					<b>loadXml</b>(url, async, onloaded)
+					<span class="light">{number}</span>
+					<b>clientY</b>
 					
 					</div>
 					<div class="description">
-						Loads the xml.
+						The client Y coordinate of the event, if any.
 						
 						
 					</div>
 					
 					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="imageX"> </a>
+					<div class="fixedFont">
 					
+					<span class="light">{number}</span>
+					<b>imageX</b>
+					
+					</div>
+					<div class="description">
+						The image X coordinate of the event, if any.
 						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>url</b>
-									
-								</dt>
-								<dd>the url to load</dd>
-							
-								<dt>
-									<span class="light fixedFont">{boolean}</span> <b>async</b>
-									
-								</dt>
-								<dd>use async request</dd>
-							
-								<dt>
-									<span class="light fixedFont">{function(success|xml)}</span> <b>onloaded</b>
-									<i>Optional</i>
-								</dt>
-								<dd>called on complete for async requests</dd>
-							
-							</dl>
+						
+					</div>
+					
+					
+
 						
 						
 						
 						
+
+					<hr />
+				
+					<a name="imageY"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>imageY</b>
+					
+					</div>
+					<div class="description">
+						The image Y coordinate of the event, if any.
 						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd>the xml for synchronous calls</dd>
-							
-							</dl>
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="localX"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>localX</b>
+					
+					</div>
+					<div class="description">
+						The local X coordinate of the event, if any.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="localY"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>localY</b>
+					
+					</div>
+					<div class="description">
+						The local Y coordinate of the event, if any.
+						
+						
+					</div>
+					
+					
+
+						
 						
 						
 						
 
 					
 				
+			
+
+<!-- ============================== method details ========================= -->		
 			
 			
 <!-- ============================== event details ========================= -->		

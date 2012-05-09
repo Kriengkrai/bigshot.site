@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>bigshot.DataLoader - Bigshot 1.2</title>
+		<title>bigshot.EventDispatcher - Bigshot 1.2</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -312,17 +312,17 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class bigshot.DataLoader
+				Class bigshot.EventDispatcher
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
 			
 				
             <p class="description">
-				Abstract base.
+				Base class for objects that dispatch events.
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/src__js__DataLoader.js.html">DataLoader.js</a>.
+					<br /><i>Defined in: </i> <a href="../symbols/src/src__js__EventDispatcher.js.html">EventDispatcher.js</a>.
 				
 
                 
@@ -330,7 +330,7 @@ ul.inheritsList
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class bigshot.DataLoader.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class bigshot.EventDispatcher.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -343,9 +343,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/bigshot.DataLoader.html#constructor">bigshot.DataLoader</a></b>()
+								<b><a href="../symbols/bigshot.EventDispatcher.html#constructor">bigshot.EventDispatcher</a></b>()
 							</div>
-							<div class="description"></div>
+							<div class="description">Creates an event dispatcher.</div>
 						</td>
 					</tr>
 				</tbody>
@@ -359,7 +359,7 @@ ul.inheritsList
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class bigshot.DataLoader.">
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class bigshot.EventDispatcher.">
 					<caption>Method Summary</caption>
 					<thead>
 						<tr>
@@ -372,18 +372,27 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.DataLoader.html#loadImage">loadImage</a></b>(url, onloaded)
+								<div class="fixedFont"><b><a href="../symbols/bigshot.EventDispatcher.html#addEventListener">addEventListener</a></b>(eventName, handler)
 								</div>
-								<div class="description">Loads an image.</div>
+								<div class="description">Adds an event listener to the specified event.</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.DataLoader.html#loadXml">loadXml</a></b>(url, async, onloaded)
+								<div class="fixedFont"><b><a href="../symbols/bigshot.EventDispatcher.html#fireEvent">fireEvent</a></b>(eventName, eventObject)
 								</div>
-								<div class="description">Loads the xml.</div>
+								<div class="description">Fires an event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/bigshot.EventDispatcher.html#removeEventListener">removeEventListener</a></b>(eventName, handler)
+								</div>
+								<div class="description">Removes an event listener.</div>
 							</td>
 						</tr>
 					
@@ -404,11 +413,11 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>bigshot.DataLoader</b>()
+						<b>bigshot.EventDispatcher</b>()
 				</div>
 				
 				<div class="description">
-					
+					Creates an event dispatcher.
 					
 				</div>
 				
@@ -435,18 +444,22 @@ ul.inheritsList
 					Method Detail
 				</div>
 				
-					<a name="loadImage"> </a>
+					<a name="addEventListener"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>loadImage</b>(url, onloaded)
+					<b>addEventListener</b>(eventName, handler)
 					
 					</div>
 					<div class="description">
-						Loads an image.
+						Adds an event listener to the specified event.
 						
 						
 					</div>
+					
+					
+					
+					<pre class="code">image.addEventListener ("click", function (event) { ... });</pre>
 					
 					
 					
@@ -455,16 +468,16 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<span class="light fixedFont">{String}</span> <b>url</b>
+									<span class="light fixedFont">{String}</span> <b>eventName</b>
 									
 								</dt>
-								<dd>the url to load</dd>
+								<dd>the name of the event to add a listener for</dd>
 							
 								<dt>
-									<span class="light fixedFont">{function(success|img)}</span> <b>onloaded</b>
+									<span class="light fixedFont">{Function}</span> <b>handler</b>
 									
 								</dt>
-								<dd>called on complete</dd>
+								<dd>function that is invoked with an event objectwhen the event is fired</dd>
 							
 							</dl>
 						
@@ -477,15 +490,15 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="loadXml"> </a>
+					<a name="fireEvent"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>loadXml</b>(url, async, onloaded)
+					<b>fireEvent</b>(eventName, eventObject)
 					
 					</div>
 					<div class="description">
-						Loads the xml.
+						Fires an event.
 						
 						
 					</div>
@@ -497,35 +510,64 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<span class="light fixedFont">{String}</span> <b>url</b>
+									<span class="light fixedFont">{String}</span> <b>eventName</b>
 									
 								</dt>
-								<dd>the url to load</dd>
+								<dd>the name of the event to fire</dd>
 							
 								<dt>
-									<span class="light fixedFont">{boolean}</span> <b>async</b>
+									<span class="light fixedFont">{<a href="../symbols/bigshot.Event.html">bigshot.Event</a>}</span> <b>eventObject</b>
 									
 								</dt>
-								<dd>use async request</dd>
-							
-								<dt>
-									<span class="light fixedFont">{function(success|xml)}</span> <b>onloaded</b>
-									<i>Optional</i>
-								</dt>
-								<dd>called on complete for async requests</dd>
+								<dd>the event object to pass to the handlers</dd>
 							
 							</dl>
 						
 						
 						
 						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeEventListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeEventListener</b>(eventName, handler)
+					
+					</div>
+					<div class="description">
+						Removes an event listener.
+						
+						
+					</div>
+					
+					
+					
 						
 							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
+							<dt class="heading">Parameters:</dt>
 							
-								<dd>the xml for synchronous calls</dd>
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>eventName</b>
+									
+								</dt>
+								<dd>the name of the event to remove a listener for</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Function}</span> <b>handler</b>
+									
+								</dt>
+								<dd>the handler to remove</dd>
 							
 							</dl>
+						
+						
+						
+						
 						
 						
 						

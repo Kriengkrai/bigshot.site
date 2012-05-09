@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>bigshot.DataLoader - Bigshot 1.2</title>
+		<title>bigshot.Event - Bigshot 1.2</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -312,17 +312,17 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class bigshot.DataLoader
+				Class bigshot.Event
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
 			
 				
             <p class="description">
-				Abstract base.
+				Base class for events. The interface is supposed to be as similar tostandard DOM events as possible.
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/src__js__DataLoader.js.html">DataLoader.js</a>.
+					<br /><i>Defined in: </i> <a href="../symbols/src/src__js__Event.js.html">Event.js</a>.
 				
 
                 
@@ -330,7 +330,7 @@ ul.inheritsList
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class bigshot.DataLoader.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class bigshot.Event.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -343,9 +343,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/bigshot.DataLoader.html#constructor">bigshot.DataLoader</a></b>()
+								<b><a href="../symbols/bigshot.Event.html#constructor">bigshot.Event</a></b>(data)
 							</div>
-							<div class="description"></div>
+							<div class="description">Creates an event.</div>
 						</td>
 					</tr>
 				</tbody>
@@ -354,12 +354,110 @@ ul.inheritsList
 
 <!-- ============================== properties summary ===================== -->
 			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class bigshot.Event.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/bigshot.Event.html#bubbles">bubbles</a></b>
+								</div>
+								<div class="description">Indicates whether the event bubbles.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/bigshot.Event.html#cancelable">cancelable</a></b>
+								</div>
+								<div class="description">Indicates whether the event is cancelable.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/bigshot.Event.html#currentTarget">currentTarget</a></b>
+								</div>
+								<div class="description">The current target of the event</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/bigshot.Event.html#defaultPrevented">defaultPrevented</a></b>
+								</div>
+								<div class="description">Set if the preventDefault method has been called.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/bigshot.Event.html#isTrusted">isTrusted</a></b>
+								</div>
+								<div class="description">Flag indicating origin of event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/bigshot.Event.html#target">target</a></b>
+								</div>
+								<div class="description">The target to which the event is dispatched.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/bigshot.Event.html#timeStamp">timeStamp</a></b>
+								</div>
+								<div class="description">The time the event was created, in milliseconds since the epoch.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/bigshot.Event.html#type">type</a></b>
+								</div>
+								<div class="description">The event type.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
 
 <!-- ============================== methods summary ======================== -->
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class bigshot.DataLoader.">
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class bigshot.Event.">
 					<caption>Method Summary</caption>
 					<thead>
 						<tr>
@@ -372,18 +470,9 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.DataLoader.html#loadImage">loadImage</a></b>(url, onloaded)
+								<div class="fixedFont"><b><a href="../symbols/bigshot.Event.html#preventDefault">preventDefault</a></b>()
 								</div>
-								<div class="description">Loads an image.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.DataLoader.html#loadXml">loadXml</a></b>(url, async, onloaded)
-								</div>
-								<div class="description">Loads the xml.</div>
+								<div class="description">Prevents default handling of the event.</div>
 							</td>
 						</tr>
 					
@@ -404,17 +493,28 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>bigshot.DataLoader</b>()
+						<b>bigshot.Event</b>(data)
 				</div>
 				
 				<div class="description">
-					
+					Creates an event.
 					
 				</div>
 				
 				
 				
 				
+					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{Object}</span>  <b>data</b>
+								
+							</dt>
+								<dd>a data object whose fields will be used to set the corresponding fields of the event object.</dd>
+						
+						</dl>
 					
 					
 					
@@ -428,6 +528,243 @@ ul.inheritsList
 
 <!-- ============================== field details ========================== -->		
 			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name="bubbles"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>bubbles</b>
+					
+					</div>
+					<div class="description">
+						Indicates whether the event bubbles.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								false
+							</dd>
+							</dl>
+						
+
+					<hr />
+				
+					<a name="cancelable"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>cancelable</b>
+					
+					</div>
+					<div class="description">
+						Indicates whether the event is cancelable.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								false
+							</dd>
+							</dl>
+						
+
+					<hr />
+				
+					<a name="currentTarget"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>currentTarget</b>
+					
+					</div>
+					<div class="description">
+						The current target of the event
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								null
+							</dd>
+							</dl>
+						
+
+					<hr />
+				
+					<a name="defaultPrevented"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>defaultPrevented</b>
+					
+					</div>
+					<div class="description">
+						Set if the preventDefault method has been called.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								false
+							</dd>
+							</dl>
+						
+
+					<hr />
+				
+					<a name="isTrusted"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{boolean}</span>
+					<b>isTrusted</b>
+					
+					</div>
+					<div class="description">
+						Flag indicating origin of event.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								false
+							</dd>
+							</dl>
+						
+
+					<hr />
+				
+					<a name="target"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>target</b>
+					
+					</div>
+					<div class="description">
+						The target to which the event is dispatched.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								null
+							</dd>
+							</dl>
+						
+
+					<hr />
+				
+					<a name="timeStamp"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number}</span>
+					<b>timeStamp</b>
+					
+					</div>
+					<div class="description">
+						The time the event was created, in milliseconds since the epoch.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								the current time, as given by <code>new Date ().getTime ()</code>
+							</dd>
+							</dl>
+						
+
+					<hr />
+				
+					<a name="type"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>type</b>
+					
+					</div>
+					<div class="description">
+						The event type.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								null
+							</dd>
+							</dl>
+						
+
+					
+				
+			
 
 <!-- ============================== method details ========================= -->		
 			
@@ -435,15 +772,15 @@ ul.inheritsList
 					Method Detail
 				</div>
 				
-					<a name="loadImage"> </a>
+					<a name="preventDefault"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>loadImage</b>(url, onloaded)
+					<b>preventDefault</b>()
 					
 					</div>
 					<div class="description">
-						Loads an image.
+						Prevents default handling of the event.
 						
 						
 					</div>
@@ -451,81 +788,9 @@ ul.inheritsList
 					
 					
 						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>url</b>
-									
-								</dt>
-								<dd>the url to load</dd>
-							
-								<dt>
-									<span class="light fixedFont">{function(success|img)}</span> <b>onloaded</b>
-									
-								</dt>
-								<dd>called on complete</dd>
-							
-							</dl>
 						
 						
 						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="loadXml"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>loadXml</b>(url, async, onloaded)
-					
-					</div>
-					<div class="description">
-						Loads the xml.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>url</b>
-									
-								</dt>
-								<dd>the url to load</dd>
-							
-								<dt>
-									<span class="light fixedFont">{boolean}</span> <b>async</b>
-									
-								</dt>
-								<dd>use async request</dd>
-							
-								<dt>
-									<span class="light fixedFont">{function(success|xml)}</span> <b>onloaded</b>
-									<i>Optional</i>
-								</dt>
-								<dd>called on complete for async requests</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd>the xml for synchronous calls</dd>
-							
-							</dl>
 						
 						
 						
