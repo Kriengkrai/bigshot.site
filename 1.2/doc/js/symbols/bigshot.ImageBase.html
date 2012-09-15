@@ -237,6 +237,8 @@ ul.inheritsList
 	
 	<li><a href="../symbols/bigshot.HotspotLayer.html">bigshot.HotspotLayer</a></li>
 	
+	<li><a href="../symbols/bigshot.HTMLDivElementLayer.html">bigshot.HTMLDivElementLayer</a></li>
+	
 	<li><a href="../symbols/bigshot.HTMLElementLayer.html">bigshot.HTMLElementLayer</a></li>
 	
 	<li><a href="../symbols/bigshot.Image.html">bigshot.Image</a></li>
@@ -356,6 +358,15 @@ ul.inheritsList
 
 <!-- ============================== properties summary ===================== -->
 			
+				
+				
+				
+				
+				<dl class="inheritsList">
+				<dt>Fields borrowed from class <a href="../symbols/bigshot.EventDispatcher.html">bigshot.EventDispatcher</a>: </dt><dd><a href="../symbols/bigshot.EventDispatcher.html#eventListeners">eventListeners</a></dd>
+				</dl>
+				
+			
 
 <!-- ============================== methods summary ======================== -->
 			
@@ -383,9 +394,18 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.ImageBase.html#adjustCoordinateForZoom">adjustCoordinateForZoom</a></b>(current, centerOfZoom, oldZoom, newZoom)
+								<div class="fixedFont"><b><a href="../symbols/bigshot.ImageBase.html#adjustCoordinateForZoom">adjustCoordinateForZoom</a></b>(current, centerOfZoom, oldZoom, oldZoom)
 								</div>
 								<div class="description">Adjusts a coordinate so that the center of zoomremains constant during zooming operations.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/bigshot.ImageBase.html#clampXY">clampXY</a></b>(x, y)
+								</div>
+								<div class="description">Constrains the x and y coordinates to allowed values</div>
 							</td>
 						</tr>
 					
@@ -410,9 +430,9 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.ImageBase.html#createImageEventData">createImageEventData</a></b>()
+								<div class="fixedFont"><b><a href="../symbols/bigshot.ImageBase.html#createImageEventData">createImageEventData</a></b>(data)
 								</div>
-								<div class="description"></div>
+								<div class="description">Creates a new <a href="../symbols/bigshot.ImageEvent.html">bigshot.ImageEvent</a> using the supplied data object,transforming the client x- and y-coordinates to local and image coordinates.</div>
 							</td>
 						</tr>
 					
@@ -644,6 +664,15 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/bigshot.ImageBase.html#setupLayers">setupLayers</a></b>()
+								</div>
+								<div class="description">Sets up the initial layers of the image.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/bigshot.ImageBase.html#showTouchUI">showTouchUI</a></b>(delay, fadeOut)
 								</div>
 								<div class="description">Briefly shows the touch ui zones.</div>
@@ -772,10 +801,10 @@ ul.inheritsList
 						<dt class="heading">Parameters:</dt>
 						
 							<dt>
-								 <b>parameters</b>
+								<span class="light fixedFont">{<a href="../symbols/bigshot.ImageParameters.html">bigshot.ImageParameters</a>}</span>  <b>parameters</b>
 								
 							</dt>
-								<dd></dd>
+								<dd>the image parameters</dd>
 						
 						</dl>
 					
@@ -844,12 +873,77 @@ ul.inheritsList
 					<a name="adjustCoordinateForZoom"> </a>
 					<div class="fixedFont">
 					
-					
-					<b>adjustCoordinateForZoom</b>(current, centerOfZoom, oldZoom, newZoom)
+					<span class="light">{number}</span>
+					<b>adjustCoordinateForZoom</b>(current, centerOfZoom, oldZoom, oldZoom)
 					
 					</div>
 					<div class="description">
-						Adjusts a coordinate so that the center of zoomremains constant during zooming operations.
+						Adjusts a coordinate so that the center of zoomremains constant during zooming operations. Themethod is intended to be called twice, once for x and once for y. The <code>current</code> and <code>centerOfZoom</code> values will be the currentand the center for the x and y, respectively.
+						
+						
+					</div>
+					
+					
+					
+					<pre class="code">this.x = this.adjustCoordinateForZoom (this.x, zoomCenterX, oldZoom, newZoom);this.y = this.adjustCoordinateForZoom (this.y, zoomCenterY, oldZoom, newZoom);</pre>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>current</b>
+									
+								</dt>
+								<dd>the current value of the coordinate</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>centerOfZoom</b>
+									
+								</dt>
+								<dd>the center of zoom along the coordinate axis</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>oldZoom</b>
+									
+								</dt>
+								<dd>the old zoom value</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>oldZoom</b>
+									
+								</dt>
+								<dd>the new zoom value</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>the new value for the coordinate</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="clampXY"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{number, number}</span>
+					<b>clampXY</b>(x, y)
+					
+					</div>
+					<div class="description">
+						Constrains the x and y coordinates to allowed values
 						
 						
 					</div>
@@ -861,34 +955,31 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>current</b>
+									<span class="light fixedFont">{number}</span> <b>x</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>the initial x coordinate</dd>
 							
 								<dt>
-									<b>centerOfZoom</b>
+									<span class="light fixedFont">{number}</span> <b>y</b>
 									
 								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>oldZoom</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<b>newZoom</b>
-									
-								</dt>
-								<dd></dd>
+								<dd>the initial y coordinate</dd>
 							
 							</dl>
 						
 						
 						
 						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{number}</span> .x the constrained x coordinate</dd>
+							
+								<dd><span class="light fixedFont">{number}</span> .y the constrained y coordinate</dd>
+							
+							</dl>
 						
 						
 						
@@ -898,7 +989,7 @@ ul.inheritsList
 					<a name="clampZoom"> </a>
 					<div class="fixedFont">
 					
-					
+					<span class="light">{number}</span>
 					<b>clampZoom</b>(zoom)
 					
 					</div>
@@ -915,10 +1006,10 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>zoom</b>
+									<span class="light fixedFont">{number}</span> <b>zoom</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>the zoom value</dd>
 							
 							</dl>
 						
@@ -934,7 +1025,7 @@ ul.inheritsList
 					<a name="clientToImage"> </a>
 					<div class="fixedFont">
 					
-					<span class="light">{number}</span>
+					<span class="light">{Object}</span>
 					<b>clientToImage</b>(clientX, clientY)
 					
 					</div>
@@ -971,7 +1062,9 @@ ul.inheritsList
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{number}</span> an x-y object with the image coordinates</dd>
+								<dd><span class="light fixedFont">{number}</span> .x the image x-coordinate</dd>
+							
+								<dd><span class="light fixedFont">{number}</span> .y the image y-coordinate</dd>
 							
 							</dl>
 						
@@ -983,12 +1076,12 @@ ul.inheritsList
 					<a name="createImageEventData"> </a>
 					<div class="fixedFont">
 					
-					
-					<b>createImageEventData</b>()
+					<span class="light">{<a href="../symbols/bigshot.ImageEvent.html">bigshot.ImageEvent</a>}</span>
+					<b>createImageEventData</b>(data)
 					
 					</div>
 					<div class="description">
-						
+						Creates a new <a href="../symbols/bigshot.ImageEvent.html">bigshot.ImageEvent</a> using the supplied data object,transforming the client x- and y-coordinates to local and image coordinates.The returned event object will have the <a href="../symbols/bigshot.ImageEvent.html#localX">bigshot.ImageEvent#localX</a>, <a href="../symbols/bigshot.ImageEvent.html#localY">bigshot.ImageEvent#localY</a>, <a href="../symbols/bigshot.ImageEvent.html#imageX">bigshot.ImageEvent#imageX</a>, <a href="../symbols/bigshot.ImageEvent.html#imageY">bigshot.ImageEvent#imageY</a>, <a href="../symbols/bigshot.Event.html#target">bigshot.Event#target</a> and <a href="../symbols/bigshot.Event.html#currentTarget">bigshot.Event#currentTarget</a> fields set.
 						
 						
 					</div>
@@ -1000,16 +1093,22 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>data.clientX</b>
+									<span class="light fixedFont">{Object}</span> <b>data</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>data object with initial values for the event object</dd>
 							
 								<dt>
-									<b>data.clientY</b>
+									<span class="light fixedFont">{number}</span> <b>data.clientX</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>the clientX of the event</dd>
+							
+								<dt>
+									<span class="light fixedFont">{number}</span> <b>data.clientY</b>
+									
+								</dt>
+								<dd>the clientY of the event</dd>
 							
 							</dl>
 						
@@ -1020,7 +1119,7 @@ ul.inheritsList
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd>the new data object</dd>
+								<dd>the new event object</dd>
 							
 							</dl>
 						
@@ -1107,7 +1206,7 @@ ul.inheritsList
 					<a name="fitZoom"> </a>
 					<div class="fixedFont">
 					
-					
+					<span class="light">{number}</span>
 					<b>fitZoom</b>(imageDimension, containerDimension)
 					
 					</div>
@@ -1496,7 +1595,7 @@ ul.inheritsList
 					<a name="getZoomToFillValue"> </a>
 					<div class="fixedFont">
 					
-					
+					<span class="light">{number}</span>
 					<b>getZoomToFillValue</b>()
 					
 					</div>
@@ -1521,7 +1620,7 @@ ul.inheritsList
 					<a name="getZoomToFitValue"> </a>
 					<div class="fixedFont">
 					
-					
+					<span class="light">{number}</span>
 					<b>getZoomToFitValue</b>()
 					
 					</div>
@@ -1650,7 +1749,7 @@ ul.inheritsList
 					<a name="rectVisibleAtZoomLevel"> </a>
 					<div class="fixedFont">
 					
-					
+					<span class="light">{number}</span>
 					<b>rectVisibleAtZoomLevel</b>(w, h)
 					
 					</div>
@@ -1683,6 +1782,13 @@ ul.inheritsList
 						
 						
 						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>the zoom level that will precisely fit the given rectangle</dd>
+							
+							</dl>
 						
 						
 						
@@ -1776,6 +1882,31 @@ ul.inheritsList
 								<dd>the minimum zoom value for this image</dd>
 							
 							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="setupLayers"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>setupLayers</b>()
+					
+					</div>
+					<div class="description">
+						Sets up the initial layers of the image. Override in subclass.
+						
+						
+					</div>
+					
+					
+					
 						
 						
 						
@@ -2056,7 +2187,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed May 09 2012 15:40:56 GMT+0200 (CEST)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Sep 15 2012 22:50:30 GMT+0200 (CEST)
 		</div>
 	</body>
 </html>
