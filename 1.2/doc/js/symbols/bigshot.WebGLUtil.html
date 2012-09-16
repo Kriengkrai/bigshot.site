@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>bigshot.HomogeneousPoint3D - Bigshot 1.2</title>
+		<title>bigshot.WebGLUtil - Bigshot 1.2</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -326,17 +326,17 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class bigshot.HomogeneousPoint3D
+				Class bigshot.WebGLUtil
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
 			
 				
             <p class="description">
-				A 3d homogenous point.
+				WebGL utility functions.
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/src__js__types.js.html">types.js</a>.
+					<br /><i>Defined in: </i> <a href="../symbols/src/src__js__WebGLUtil.js.html">WebGLUtil.js</a>.
 				
 
                 
@@ -344,7 +344,7 @@ ul.inheritsList
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class bigshot.HomogeneousPoint3D.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class bigshot.WebGLUtil.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -357,9 +357,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/bigshot.HomogeneousPoint3D.html#constructor">bigshot.HomogeneousPoint3D</a></b>()
+								<b><a href="../symbols/bigshot.WebGLUtil.html#constructor">bigshot.WebGLUtil</a></b>()
 							</div>
-							<div class="description">This class has no constructor, it is created as an object literal.</div>
+							<div class="description"></div>
 						</td>
 					</tr>
 				</tbody>
@@ -370,7 +370,7 @@ ul.inheritsList
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class bigshot.HomogeneousPoint3D.">
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class bigshot.WebGLUtil.">
 					<caption>Field Summary</caption>
 					<thead>
 						<tr>
@@ -381,42 +381,12 @@ ul.inheritsList
 					<tbody>
 					
 						<tr>
-							<td class="attributes">&nbsp;</td>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont">
-								<b><a href="../symbols/bigshot.HomogeneousPoint3D.html#w">w</a></b>
+								bigshot.WebGLUtil.<b><a href="../symbols/bigshot.WebGLUtil.html#.debug">debug</a></b>
 								</div>
-								<div class="description">the w-coordinate</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/bigshot.HomogeneousPoint3D.html#x">x</a></b>
-								</div>
-								<div class="description">the x-coordinate</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/bigshot.HomogeneousPoint3D.html#y">y</a></b>
-								</div>
-								<div class="description">the y-coordinate</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/bigshot.HomogeneousPoint3D.html#z">z</a></b>
-								</div>
-								<div class="description">the z-coordinate</div>
+								<div class="description">Flag indicating whether we want to wrap the WebGL context in a WebGLDebugUtils.makeDebugContext.</div>
 							</td>
 						</tr>
 					
@@ -429,6 +399,42 @@ ul.inheritsList
 
 <!-- ============================== methods summary ======================== -->
 			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class bigshot.WebGLUtil.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">bigshot.WebGLUtil.<b><a href="../symbols/bigshot.WebGLUtil.html#.createContext">createContext</a></b>(canvas)
+								</div>
+								<div class="description">Creates a WebGL context for the given canvas, if possible.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">bigshot.WebGLUtil.<b><a href="../symbols/bigshot.WebGLUtil.html#.isWebGLSupported">isWebGLSupported</a></b>()
+								</div>
+								<div class="description">Tests whether WebGL is supported.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
 <!-- ============================== events summary ======================== -->
 			
 
@@ -440,11 +446,11 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>bigshot.HomogeneousPoint3D</b>()
+						<b>bigshot.WebGLUtil</b>()
 				</div>
 				
 				<div class="description">
-					This class has no constructor, it is created as an object literal.
+					
 					
 				</div>
 				
@@ -468,81 +474,15 @@ ul.inheritsList
 					Field Detail
 				</div>
 				
-					<a name="w"> </a>
-					<div class="fixedFont">
+					<a name=".debug"> </a>
+					<div class="fixedFont">&lt;static&gt; 
 					
-					<span class="light">{number}</span>
-					<b>w</b>
-					
-					</div>
-					<div class="description">
-						the w-coordinate
-						
-						
-					</div>
-					
-					
-
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="x"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{number}</span>
-					<b>x</b>
+					<span class="light">{boolean}</span>
+					<span class="light">bigshot.WebGLUtil.</span><b>debug</b>
 					
 					</div>
 					<div class="description">
-						the x-coordinate
-						
-						
-					</div>
-					
-					
-
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="y"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{number}</span>
-					<b>y</b>
-					
-					</div>
-					<div class="description">
-						the y-coordinate
-						
-						
-					</div>
-					
-					
-
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="z"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{number}</span>
-					<b>z</b>
-					
-					</div>
-					<div class="description">
-						the z-coordinate
+						Flag indicating whether we want to wrap the WebGL context in a WebGLDebugUtils.makeDebugContext. Defaults to false.
 						
 						
 					</div>
@@ -560,6 +500,96 @@ ul.inheritsList
 
 <!-- ============================== method details ========================= -->		
 			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".createContext"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{WebGLRenderingContext}</span>
+					<span class="light">bigshot.WebGLUtil.</span><b>createContext</b>(canvas)
+					
+					</div>
+					<div class="description">
+						Creates a WebGL context for the given canvas, if possible.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{HTMLCanvasElement}</span> <b>canvas</b>
+									
+								</dt>
+								<dd>the canvas</dd>
+							
+							</dl>
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Throws:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Error}</span>  <b></b>
+								</dt>
+								<dd>If WebGL isn't supported.</dd>
+							
+							</dl>
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>The WebGL context</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".isWebGLSupported"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{boolean}</span>
+					<span class="light">bigshot.WebGLUtil.</span><b>isWebGLSupported</b>()
+					
+					</div>
+					<div class="description">
+						Tests whether WebGL is supported.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>true If WebGL is supported, false otherwise.</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
 			
 <!-- ============================== event details ========================= -->		
 			
@@ -571,7 +601,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Sep 16 2012 11:43:24 GMT+0200 (CEST)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Sep 16 2012 11:43:25 GMT+0200 (CEST)
 		</div>
 	</body>
 </html>
