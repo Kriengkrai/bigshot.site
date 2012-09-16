@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>bigshot.DataLoader - Bigshot 1.2</title>
+		<title>bigshot.Rotation - Bigshot 1.2</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -326,17 +326,17 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class bigshot.DataLoader
+				Class bigshot.Rotation
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
 			
 				
             <p class="description">
-				Loads image and XML data.
+				A rotation specified as a yaw-pitch-roll triplet.
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/src__js__DataLoader.js.html">DataLoader.js</a>.
+					<br /><i>Defined in: </i> <a href="../symbols/src/src__js__types.js.html">types.js</a>.
 				
 
                 
@@ -344,7 +344,7 @@ ul.inheritsList
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class bigshot.DataLoader.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class bigshot.Rotation.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -357,9 +357,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/bigshot.DataLoader.html#constructor">bigshot.DataLoader</a></b>()
+								<b><a href="../symbols/bigshot.Rotation.html#constructor">bigshot.Rotation</a></b>()
 							</div>
-							<div class="description"></div>
+							<div class="description">This class has no constructor, it is created as an object literal.</div>
 						</td>
 					</tr>
 				</tbody>
@@ -368,17 +368,14 @@ ul.inheritsList
 
 <!-- ============================== properties summary ===================== -->
 			
-
-<!-- ============================== methods summary ======================== -->
-			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class bigshot.DataLoader.">
-					<caption>Method Summary</caption>
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class bigshot.Rotation.">
+					<caption>Field Summary</caption>
 					<thead>
 						<tr>
-							<th scope="col">Method Attributes</th>
-							<th scope="col">Method Name and Description</th>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -386,18 +383,30 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.DataLoader.html#loadImage">loadImage</a></b>(url, onloaded)
+								<div class="fixedFont">
+								<b><a href="../symbols/bigshot.Rotation.html#p">p</a></b>
 								</div>
-								<div class="description">Loads an image.</div>
+								<div class="description">the rotation around the pitch (x) axis</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.DataLoader.html#loadXml">loadXml</a></b>(url, async, onloaded)
+								<div class="fixedFont">
+								<b><a href="../symbols/bigshot.Rotation.html#r">r</a></b>
 								</div>
-								<div class="description">Loads XML data.</div>
+								<div class="description">the rotation around the roll (z) axis</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/bigshot.Rotation.html#y">y</a></b>
+								</div>
+								<div class="description">the rotation around the yaw (y) axis</div>
 							</td>
 						</tr>
 					
@@ -406,6 +415,9 @@ ul.inheritsList
 				
 				
 				
+			
+
+<!-- ============================== methods summary ======================== -->
 			
 <!-- ============================== events summary ======================== -->
 			
@@ -418,11 +430,11 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>bigshot.DataLoader</b>()
+						<b>bigshot.Rotation</b>()
 				</div>
 				
 				<div class="description">
-					
+					This class has no constructor, it is created as an object literal.
 					
 				</div>
 				
@@ -442,48 +454,25 @@ ul.inheritsList
 
 <!-- ============================== field details ========================== -->		
 			
-
-<!-- ============================== method details ========================= -->		
-			
 				<div class="sectionTitle">
-					Method Detail
+					Field Detail
 				</div>
 				
-					<a name="loadImage"> </a>
+					<a name="p"> </a>
 					<div class="fixedFont">
 					
-					
-					<b>loadImage</b>(url, onloaded)
+					<span class="light">{number}</span>
+					<b>p</b>
 					
 					</div>
 					<div class="description">
-						Loads an image.
+						the rotation around the pitch (x) axis
 						
 						
 					</div>
 					
 					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>url</b>
-									
-								</dt>
-								<dd>the url to load</dd>
-							
-								<dt>
-									<span class="light fixedFont">{function(success|img)}</span> <b>onloaded</b>
-									
-								</dt>
-								<dd>called on complete</dd>
-							
-							</dl>
-						
-						
-						
+
 						
 						
 						
@@ -491,61 +480,53 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="loadXml"> </a>
+					<a name="r"> </a>
 					<div class="fixedFont">
 					
-					
-					<b>loadXml</b>(url, async, onloaded)
+					<span class="light">{number}</span>
+					<b>r</b>
 					
 					</div>
 					<div class="description">
-						Loads XML data.
+						the rotation around the roll (z) axis
 						
 						
 					</div>
 					
 					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="y"> </a>
+					<div class="fixedFont">
 					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>url</b>
-									
-								</dt>
-								<dd>the url to load</dd>
-							
-								<dt>
-									<span class="light fixedFont">{boolean}</span> <b>async</b>
-									
-								</dt>
-								<dd>use async request</dd>
-							
-								<dt>
-									<span class="light fixedFont">{function(success|xml)}</span> <b>onloaded</b>
-									<i>Optional</i>
-								</dt>
-								<dd>called on complete for async requests</dd>
-							
-							</dl>
+					<span class="light">{number}</span>
+					<b>y</b>
+					
+					</div>
+					<div class="description">
+						the rotation around the yaw (y) axis
 						
 						
+					</div>
+					
+					
+
 						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd>the xml for synchronous calls</dd>
-							
-							</dl>
 						
 						
 						
 
 					
 				
+			
+
+<!-- ============================== method details ========================= -->		
 			
 			
 <!-- ============================== event details ========================= -->		

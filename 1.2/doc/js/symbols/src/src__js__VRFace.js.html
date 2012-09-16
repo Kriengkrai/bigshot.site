@@ -30,10 +30,10 @@
 <span class='line'> 23</span>  * @param {bigshot.VRPanorama} owner the VR panorama this face is part of.
 <span class='line'> 24</span>  * @param {String} key the identifier for the face. "f" is front, "b" is back, "u" is
 <span class='line'> 25</span>  * up, "d" is down, "l" is left and "r" is right.
-<span class='line'> 26</span>  * @param {point} topLeft_ the top-left corner of the quad.
+<span class='line'> 26</span>  * @param {bigshot.Point3D} topLeft_ the top-left corner of the quad.
 <span class='line'> 27</span>  * @param {number} width_ the length of the sides of the face, expressed in multiples of u and v.
-<span class='line'> 28</span>  * @param {vector} u basis vector going from the top left corner along the top edge of the face
-<span class='line'> 29</span>  * @param {vector} v basis vector going from the top left corner along the left edge of the face
+<span class='line'> 28</span>  * @param {bigshot.Point3D} u basis vector going from the top left corner along the top edge of the face
+<span class='line'> 29</span>  * @param {bigshot.Point3D} v basis vector going from the top left corner along the left edge of the face
 <span class='line'> 30</span>  */</span><span class="WHIT">
 <span class='line'> 31</span> </span><span class="NAME">bigshot.VRFace</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">owner</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">key</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">topLeft_</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">width_</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">u</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">v</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">onLoaded</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
 <span class='line'> 32</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">that</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">
@@ -83,9 +83,9 @@
 <span class='line'> 76</span>      * Utility function to do a multiply-and-add of a 3d point.
 <span class='line'> 77</span>      *
 <span class='line'> 78</span>      * @private
-<span class='line'> 79</span>      * @param p {point} the point to multiply
+<span class='line'> 79</span>      * @param p {bigshot.Point3D} the point to multiply
 <span class='line'> 80</span>      * @param m {number} the number to multiply the elements of p with
-<span class='line'> 81</span>      * @param a {point} the point to add
+<span class='line'> 81</span>      * @param a {bigshot.Point3D} the point to add
 <span class='line'> 82</span>      * @return p * m + a
 <span class='line'> 83</span>      */</span><span class="WHIT">
 <span class='line'> 84</span> </span><span class="WHIT">    </span><span class="NAME">pt3dMultAdd</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">p</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">m</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">a</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
@@ -100,7 +100,7 @@
 <span class='line'> 93</span>      * Utility function to do an element-wise multiply of a 3d point.
 <span class='line'> 94</span>      *
 <span class='line'> 95</span>      * @private
-<span class='line'> 96</span>      * @param p {point} the point to multiply
+<span class='line'> 96</span>      * @param p {bigshot.Point3D} the point to multiply
 <span class='line'> 97</span>      * @param m {number} the number to multiply the elements of p with
 <span class='line'> 98</span>      * @return p * m
 <span class='line'> 99</span>      */</span><span class="WHIT">
@@ -223,7 +223,7 @@
 <span class='line'>216</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
 <span class='line'>217</span> </span><span class="WHIT">    </span><span class="WHIT">
 <span class='line'>218</span> </span><span class="WHIT">    </span><span class="NAME">transformToScreen</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">transformToScreen</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">v</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>219</span> </span><span class="WHIT">        </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.owner.renderer.transformToScreen</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">[</span><span class="NAME">v.x</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">v.y</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">v.z</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">1.0</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>219</span> </span><span class="WHIT">        </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.owner.renderer.transformToScreen</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">v</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>220</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
 <span class='line'>221</span> </span><span class="WHIT">    </span><span class="WHIT">
 <span class='line'>222</span> </span><span class="WHIT">    </span><span class="COMM">/**
@@ -232,7 +232,7 @@
 <span class='line'>225</span>      *
 <span class='line'>226</span>      * @private
 <span class='line'>227</span>      * @param {bigshot.WebGLTexturedQuadScene} scene the scene to add quads to
-<span class='line'>228</span>      * @param {point} topLeft the top left corner of this quad
+<span class='line'>228</span>      * @param {bigshot.Point3D} topLeft the top left corner of this quad
 <span class='line'>229</span>      * @param {number} width the sides of the quad, expressed in multiples of u and v
 <span class='line'>230</span>      * @param {int} divisions the current number of divisions done (increases by one for each
 <span class='line'>231</span>      * split-in-four).

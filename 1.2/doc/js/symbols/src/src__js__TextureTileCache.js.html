@@ -26,9 +26,9 @@
 <span class='line'> 19</span>  *
 <span class='line'> 20</span>  * @class Tile texture cache for a {@link bigshot.VRFace}.
 <span class='line'> 21</span>  * @augments bigshot.VRTileCache
-<span class='line'> 22</span>  * @param {function()} onLoaded function that is called whenever a texture tile has been
-<span class='line'> 23</span>  * loaded.
-<span class='line'> 24</span>  * @param {bigshot.VRPanoramaParameters} image parameters
+<span class='line'> 22</span>  * @param {function()} onLoaded function that is called whenever a texture tile has been loaded
+<span class='line'> 23</span>  * @param {function()} onCacheInit function that is called when the texture cache is fully initialized
+<span class='line'> 24</span>  * @param {bigshot.VRPanoramaParameters} parameters image parameters
 <span class='line'> 25</span>  * @param {bigshot.WebGL} _webGl WebGL instance to use
 <span class='line'> 26</span>  */</span><span class="WHIT">
 <span class='line'> 27</span> </span><span class="NAME">bigshot.TextureTileCache</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">onLoaded</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">onCacheInit</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">parameters</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">_webGl</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
@@ -194,5 +194,5 @@
 <span class='line'>187</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>188</span> 
 <span class='line'>189</span> 
-<span class='line'>190</span> </span><span class="NAME">bigshot.object.validate</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="STRN">"bigshot.TextureTileCache"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">bigshot.VRTileCache</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>190</span> </span><span class="NAME">bigshot.Object.validate</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="STRN">"bigshot.TextureTileCache"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">bigshot.VRTileCache</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>191</span> </span></pre></body></html>

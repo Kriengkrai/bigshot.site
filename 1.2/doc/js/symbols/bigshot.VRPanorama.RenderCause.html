@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>bigshot.DataLoader - Bigshot 1.2</title>
+		<title>bigshot.VRPanorama.RenderCause - Bigshot 1.2</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -326,17 +326,17 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class bigshot.DataLoader
+				Class bigshot.VRPanorama.RenderCause
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
 			
 				
             <p class="description">
-				Loads image and XML data.
+				The reason why the <a href="../symbols/bigshot.VRPanorama.html">bigshot.VRPanorama</a> is being rendered.Due to the events outside of the panorama, the VR panorama may be forced tore-render itself. When this happens, the <a href="../symbols/bigshot.VRPanorama.html#.RenderListener">bigshot.VRPanorama.RenderListener</a>sreceive a constant indicating the cause of the rendering.
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/src__js__DataLoader.js.html">DataLoader.js</a>.
+					<br /><i>Defined in: </i> <a href="../symbols/src/src__js__VRPanorama.js.html">VRPanorama.js</a>.
 				
 
                 
@@ -344,7 +344,7 @@ ul.inheritsList
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class bigshot.DataLoader.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class bigshot.VRPanorama.RenderCause.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -357,7 +357,7 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/bigshot.DataLoader.html#constructor">bigshot.DataLoader</a></b>()
+								<b><a href="../symbols/bigshot.VRPanorama.RenderCause.html#constructor">bigshot.VRPanorama.RenderCause</a></b>()
 							</div>
 							<div class="description"></div>
 						</td>
@@ -371,42 +371,6 @@ ul.inheritsList
 
 <!-- ============================== methods summary ======================== -->
 			
-				
-				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class bigshot.DataLoader.">
-					<caption>Method Summary</caption>
-					<thead>
-						<tr>
-							<th scope="col">Method Attributes</th>
-							<th scope="col">Method Name and Description</th>
-						</tr>
-					</thead>
-					<tbody>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.DataLoader.html#loadImage">loadImage</a></b>(url, onloaded)
-								</div>
-								<div class="description">Loads an image.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.DataLoader.html#loadXml">loadXml</a></b>(url, async, onloaded)
-								</div>
-								<div class="description">Loads XML data.</div>
-							</td>
-						</tr>
-					
-					</tbody>
-				</table>
-				
-				
-				
-			
 <!-- ============================== events summary ======================== -->
 			
 
@@ -418,7 +382,7 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>bigshot.DataLoader</b>()
+						<b>bigshot.VRPanorama.RenderCause</b>()
 				</div>
 				
 				<div class="description">
@@ -436,6 +400,13 @@ ul.inheritsList
 					
 					
 					
+						<dl class="detailList">
+						<dt class="heading">See:</dt>
+						
+							<dd><a href="../symbols/bigshot.VRPanorama.html#.ONRENDER_TEXTURE_UPDATE">bigshot.VRPanorama.ONRENDER_TEXTURE_UPDATE</a></dd>
+						
+						</dl>
+					
 
 			</div>
 			
@@ -444,108 +415,6 @@ ul.inheritsList
 			
 
 <!-- ============================== method details ========================= -->		
-			
-				<div class="sectionTitle">
-					Method Detail
-				</div>
-				
-					<a name="loadImage"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>loadImage</b>(url, onloaded)
-					
-					</div>
-					<div class="description">
-						Loads an image.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>url</b>
-									
-								</dt>
-								<dd>the url to load</dd>
-							
-								<dt>
-									<span class="light fixedFont">{function(success|img)}</span> <b>onloaded</b>
-									
-								</dt>
-								<dd>called on complete</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="loadXml"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>loadXml</b>(url, async, onloaded)
-					
-					</div>
-					<div class="description">
-						Loads XML data.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>url</b>
-									
-								</dt>
-								<dd>the url to load</dd>
-							
-								<dt>
-									<span class="light fixedFont">{boolean}</span> <b>async</b>
-									
-								</dt>
-								<dd>use async request</dd>
-							
-								<dt>
-									<span class="light fixedFont">{function(success|xml)}</span> <b>onloaded</b>
-									<i>Optional</i>
-								</dt>
-								<dd>called on complete for async requests</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd>the xml for synchronous calls</dd>
-							
-							</dl>
-						
-						
-						
-
-					
-				
 			
 			
 <!-- ============================== event details ========================= -->		
@@ -558,7 +427,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Sep 16 2012 11:36:45 GMT+0200 (CEST)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Sep 16 2012 11:36:46 GMT+0200 (CEST)
 		</div>
 	</body>
 </html>
