@@ -1,18 +1,19 @@
-<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
-	.KEYW {color: #933;}
-	.COMM {color: #bbb; font-style: italic;}
-	.NUMB {color: #393;}
-	.STRN {color: #393;}
-	.REGX {color: #339;}
-	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
-	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
-<span class='line'>  2</span>  * Copyright 2010 - 2012 Leo Sutic &lt;leo.sutic@gmail.com>
+<html><head><meta name="viewport" content="initial-scale=1.0, width=device-width, height=device-height"><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+    .KEYW {color: #933;}
+    .COMM {color: #080; font-style: italic;}
+    .NUMB {color: #339;}
+    .STRN {color: #339;}
+    .REGX {color: #339;}
+    .line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+    pre { white-space: pre-wrap; }
+    </style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * Copyright 2010 - 2012 Leo Sutic &lt;leo​.sutic@gmail​.com>
 <span class='line'>  3</span>  *  
-<span class='line'>  4</span>  * Licensed under the Apache License, Version 2.0 (the "License"); 
+<span class='line'>  4</span>  * Licensed under the Apache License, Version 2​.0 (the "License"); 
 <span class='line'>  5</span>  * you may not use this file except in compliance with the License. 
 <span class='line'>  6</span>  * You may obtain a copy of the License at 
 <span class='line'>  7</span>  * 
-<span class='line'>  8</span>  *     http://www.apache.org/licenses/LICENSE-2.0 
+<span class='line'>  8</span>  *     http://www​.apache​.org​/licenses​/LICENSE-2​.0 
 <span class='line'>  9</span>  *     
 <span class='line'> 10</span>  * Unless required by applicable law or agreed to in writing, software 
 <span class='line'> 11</span>  * distributed under the License is distributed on an "AS IS" BASIS, 
@@ -24,30 +25,30 @@
 <span class='line'> 17</span> </span><span class="COMM">/**
 <span class='line'> 18</span>  * @class Abstract base for 3d rendering system.
 <span class='line'> 19</span>  */</span><span class="WHIT">
-<span class='line'> 20</span> </span><span class="NAME">bigshot.VRRenderer</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 20</span> </span><span class="NAME">bigshot​.VRRenderer</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
 <span class='line'> 21</span> </span><span class="PUNC">}</span><span class="WHIT">
 <span class='line'> 22</span> 
-<span class='line'> 23</span> </span><span class="NAME">bigshot.VRRenderer.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 23</span> </span><span class="NAME">bigshot​.VRRenderer​.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
 <span class='line'> 24</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'> 25</span>      * Creates a new {@link bigshot.VRTileCache}, appropriate for the rendering system.
+<span class='line'> 25</span>      * Creates a new {@link bigshot​.VRTileCache}, appropriate for the rendering system.
 <span class='line'> 26</span>      *
 <span class='line'> 27</span>      * @param {function()} onloaded function that is called whenever a texture tile has been loaded
 <span class='line'> 28</span>      * @param {function()} onCacheInit function that is called when the texture cache is fully initialized
-<span class='line'> 29</span>      * @param {bigshot.VRPanoramaParameters} parameters the parameters for the panorama
+<span class='line'> 29</span>      * @param {bigshot​.VRPanoramaParameters} parameters the parameters for the panorama
 <span class='line'> 30</span>      */</span><span class="WHIT">
 <span class='line'> 31</span> </span><span class="WHIT">    </span><span class="NAME">createTileCache</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">onloaded</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">onCacheInit</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">parameters</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
 <span class='line'> 32</span> </span><span class="WHIT">    </span><span class="WHIT">
 <span class='line'> 33</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'> 34</span>      * Creates a bigshot.TexturedQuadScene.
+<span class='line'> 34</span>      * Creates a bigshot​.TexturedQuadScene.
 <span class='line'> 35</span>      */</span><span class="WHIT">
 <span class='line'> 36</span> </span><span class="WHIT">    </span><span class="NAME">createTexturedQuadScene</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
 <span class='line'> 37</span> </span><span class="WHIT">    </span><span class="WHIT">
 <span class='line'> 38</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'> 39</span>      * Creates a bigshot.TexturedQuad.
+<span class='line'> 39</span>      * Creates a bigshot​.TexturedQuad.
 <span class='line'> 40</span>      *
-<span class='line'> 41</span>      * @param {bigshot.Point3D} p the top-left corner of the quad
-<span class='line'> 42</span>      * @param {bigshot.Point3D} u a vector going along the top edge of the quad
-<span class='line'> 43</span>      * @param {bigshot.Point3D} v a vector going down the left edge of the quad
+<span class='line'> 41</span>      * @param {bigshot​.Point3D} p the top-left corner of the quad
+<span class='line'> 42</span>      * @param {bigshot​.Point3D} u a vector going along the top edge of the quad
+<span class='line'> 43</span>      * @param {bigshot​.Point3D} v a vector going down the left edge of the quad
 <span class='line'> 44</span>      * @param {Object} texture a texture to use for the quad. The texture type may vary among different
 <span class='line'> 45</span>      * VRRenderer implementations. The VRTileCache that is created using the createTileCache method will
 <span class='line'> 46</span>      * supply the correct type.
@@ -71,21 +72,21 @@
 <span class='line'> 64</span> </span><span class="WHIT">    </span><span class="COMM">/**
 <span class='line'> 65</span>      * Transforms a vector to world coordinates.
 <span class='line'> 66</span>      *
-<span class='line'> 67</span>      * @param {bigshot.Point3D} v the view-space point to transform
+<span class='line'> 67</span>      * @param {bigshot​.Point3D} v the view-space point to transform
 <span class='line'> 68</span>      */</span><span class="WHIT">
 <span class='line'> 69</span> </span><span class="WHIT">    </span><span class="NAME">transformToWorld</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">v</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
 <span class='line'> 70</span> </span><span class="WHIT">    </span><span class="WHIT">
 <span class='line'> 71</span> </span><span class="WHIT">    </span><span class="COMM">/**
 <span class='line'> 72</span>      * Transforms a world vector to screen coordinates.
 <span class='line'> 73</span>      *
-<span class='line'> 74</span>      * @param {bigshot.Point3D} worldVector the world-space point to transform
+<span class='line'> 74</span>      * @param {bigshot​.Point3D} worldVector the world-space point to transform
 <span class='line'> 75</span>      */</span><span class="WHIT">
 <span class='line'> 76</span> </span><span class="WHIT">    </span><span class="NAME">transformWorldToScreen</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">worldVector</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
 <span class='line'> 77</span> </span><span class="WHIT">    </span><span class="WHIT">
 <span class='line'> 78</span> </span><span class="WHIT">    </span><span class="COMM">/**
 <span class='line'> 79</span>      * Transforms a 3D vector to screen coordinates.
 <span class='line'> 80</span>      *
-<span class='line'> 81</span>      * @param {bigshot.Point3D} vector the vector to transform. 
+<span class='line'> 81</span>      * @param {bigshot​.Point3D} vector the vector to transform. 
 <span class='line'> 82</span>      * If it is already in homogenous coordinates (4-element array) 
 <span class='line'> 83</span>      * the transformation is faster. Otherwise it will be converted.
 <span class='line'> 84</span>      */</span><span class="WHIT">
@@ -99,10 +100,10 @@
 <span class='line'> 92</span> </span><span class="WHIT">    </span><span class="COMM">/**
 <span class='line'> 93</span>      * Called to begin a render.
 <span class='line'> 94</span>      *
-<span class='line'> 95</span>      * @param {bigshot.Rotation} rotation the rotation of the viewer
+<span class='line'> 95</span>      * @param {bigshot​.Rotation} rotation the rotation of the viewer
 <span class='line'> 96</span>      * @param {number} fov the vertical field of view, in degrees
-<span class='line'> 97</span>      * @param {bigshot.Point3D} translation the position of the viewer in world space
-<span class='line'> 98</span>      * @param {bigshot.Rotation} rotationOffsets the rotation to apply to the VR cube 
+<span class='line'> 97</span>      * @param {bigshot​.Point3D} translation the position of the viewer in world space
+<span class='line'> 98</span>      * @param {bigshot​.Rotation} rotationOffsets the rotation to apply to the VR cube 
 <span class='line'> 99</span>      * before the viewer rotation is applied
 <span class='line'>100</span>      */</span><span class="WHIT">
 <span class='line'>101</span> </span><span class="WHIT">    </span><span class="NAME">beginRender</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">rotation</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">fov</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">translation</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">rotationOffsets</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">

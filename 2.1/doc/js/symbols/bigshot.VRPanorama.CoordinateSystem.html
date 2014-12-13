@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>bigshot.FileSystem - Bigshot 2.1</title>
+		<title>bigshot.VRPanorama.CoordinateSystem - Bigshot 2.1</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -332,17 +332,17 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class bigshot.FileSystem
+				Class bigshot.VRPanorama.CoordinateSystem
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
 			
 				
             <p class="description">
-				Abstract filesystem definition.
+				The frame of reference to use for coordinates.
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/FileSystem.js.html">FileSystem.js</a>.
+					<br /><i>Defined in: </i> <a href="../symbols/src/VRPanorama.js.html">VRPanorama.js</a>.
 				
 
                 
@@ -350,7 +350,7 @@ ul.inheritsList
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class bigshot.FileSystem.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class bigshot.VRPanorama.CoordinateSystem.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -363,9 +363,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/bigshot.FileSystem.html#constructor">bigshot.FileSystem</a></b>()
+								<b><a href="../symbols/bigshot.VRPanorama.CoordinateSystem.html#constructor">bigshot.VRPanorama.CoordinateSystem</a></b>()
 							</div>
-							<div class="description">Abstract filesystem definition.</div>
+							<div class="description"></div>
 						</td>
 					</tr>
 				</tbody>
@@ -374,63 +374,35 @@ ul.inheritsList
 
 <!-- ============================== properties summary ===================== -->
 			
-
-<!-- ============================== methods summary ======================== -->
-			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class bigshot.FileSystem.">
-					<caption>Method Summary</caption>
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class bigshot.VRPanorama.CoordinateSystem.">
+					<caption>Field Summary</caption>
 					<thead>
 						<tr>
-							<th scope="col">Method Attributes</th>
-							<th scope="col">Method Name and Description</th>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
 						</tr>
 					</thead>
 					<tbody>
 					
 						<tr>
-							<td class="attributes">&nbsp;</td>
+							<td class="attributes">&lt;static&gt; &lt;constant&gt; &nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.FileSystem.html#getDescriptor">getDescriptor</a></b>(callback)
+								<div class="fixedFont">
+								bigshot.VRPanorama.CoordinateSystem.<b><a href="../symbols/bigshot.VRPanorama.CoordinateSystem.html#.IMAGE">IMAGE</a></b>
 								</div>
-								<div class="description">Returns an image descriptor object from the descriptor file.</div>
+								<div class="description">Coordinates relative to the panorama image map.</div>
 							</td>
 						</tr>
 					
 						<tr>
-							<td class="attributes">&nbsp;</td>
+							<td class="attributes">&lt;static&gt; &lt;constant&gt; &nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.FileSystem.html#getFilename">getFilename</a></b>(name)
+								<div class="fixedFont">
+								bigshot.VRPanorama.CoordinateSystem.<b><a href="../symbols/bigshot.VRPanorama.CoordinateSystem.html#.VIEW">VIEW</a></b>
 								</div>
-								<div class="description">Returns the URL filename for the given filesystem entry.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.FileSystem.html#getImageFilename">getImageFilename</a></b>(tileX, tileY, zoomLevel)
-								</div>
-								<div class="description">Returns the entry filename for the given tile.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.FileSystem.html#getPosterFilename">getPosterFilename</a></b>()
-								</div>
-								<div class="description">Returns the poster URL filename.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/bigshot.FileSystem.html#setPrefix">setPrefix</a></b>(prefix)
-								</div>
-								<div class="description">Sets an optional prefix that is prepended, along with a forwardslash ("/"), to all names.</div>
+								<div class="description">Coordinates relative to the bubble 3D-space.</div>
 							</td>
 						</tr>
 					
@@ -439,6 +411,9 @@ ul.inheritsList
 				
 				
 				
+			
+
+<!-- ============================== methods summary ======================== -->
 			
 <!-- ============================== events summary ======================== -->
 			
@@ -451,11 +426,11 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>bigshot.FileSystem</b>()
+						<b>bigshot.VRPanorama.CoordinateSystem</b>()
 				</div>
 				
 				<div class="description">
-					Abstract filesystem definition.
+					
 					
 				</div>
 				
@@ -475,85 +450,25 @@ ul.inheritsList
 
 <!-- ============================== field details ========================== -->		
 			
-
-<!-- ============================== method details ========================= -->		
-			
 				<div class="sectionTitle">
-					Method Detail
+					Field Detail
 				</div>
 				
-					<a name="getDescriptor"> </a>
-					<div class="fixedFont">
+					<a name=".IMAGE"> </a>
+					<div class="fixedFont">&lt;static&gt; &lt;constant&gt; 
 					
-					
-					<b>getDescriptor</b>(callback)
+					<span class="light">{<a href="../symbols/bigshot.VRPanorama.CoordinateSystem.html">bigshot.VRPanorama.CoordinateSystem</a>}</span>
+					<span class="light">bigshot.VRPanorama.CoordinateSystem.</span><b>IMAGE</b>
 					
 					</div>
 					<div class="description">
-						Returns an image descriptor object from the descriptor file.
+						Coordinates relative to the panorama image map. Yaw and pitch values expressed in this system will remain fixed at the same spot in the panorama's image when therotation offsets change.
 						
 						
 					</div>
 					
 					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{Function}</span> <b>callback</b>
-									<i>Optional</i>
-								</dt>
-								<dd>an optional callback that receives the descriptor after an async load. Otherwise the function does a synchronous load.</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd>a descriptor object</dd>
-							
-							</dl>
-						
-						
-						
 
-					<hr />
-				
-					<a name="getFilename"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>getFilename</b>(name)
-					
-					</div>
-					<div class="description">
-						Returns the URL filename for the given filesystem entry.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>name</b>
-									
-								</dt>
-								<dd>the entry name</dd>
-							
-							</dl>
-						
-						
-						
 						
 						
 						
@@ -561,108 +476,21 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="getImageFilename"> </a>
-					<div class="fixedFont">
+					<a name=".VIEW"> </a>
+					<div class="fixedFont">&lt;static&gt; &lt;constant&gt; 
 					
-					
-					<b>getImageFilename</b>(tileX, tileY, zoomLevel)
+					<span class="light">{<a href="../symbols/bigshot.VRPanorama.CoordinateSystem.html">bigshot.VRPanorama.CoordinateSystem</a>}</span>
+					<span class="light">bigshot.VRPanorama.CoordinateSystem.</span><b>VIEW</b>
 					
 					</div>
 					<div class="description">
-						Returns the entry filename for the given tile.
+						Coordinates relative to the bubble 3D-space. Yaw and pitch values expressed in this system will remain fixed at the same viewing yaw and pitch when the rotation offsets change.
 						
 						
 					</div>
 					
 					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{int}</span> <b>tileX</b>
-									
-								</dt>
-								<dd>the column of the tile</dd>
-							
-								<dt>
-									<span class="light fixedFont">{int}</span> <b>tileY</b>
-									
-								</dt>
-								<dd>the row of the tile</dd>
-							
-								<dt>
-									<span class="light fixedFont">{int}</span> <b>zoomLevel</b>
-									
-								</dt>
-								<dd>the zoom level</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-						
-						
 
-					<hr />
-				
-					<a name="getPosterFilename"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>getPosterFilename</b>()
-					
-					</div>
-					<div class="description">
-						Returns the poster URL filename. For Bigshot images this istypically the URL corresponding to the entry "poster.jpg", but for other filesystems it can be different.
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="setPrefix"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>setPrefix</b>(prefix)
-					
-					</div>
-					<div class="description">
-						Sets an optional prefix that is prepended, along with a forwardslash ("/"), to all names.
-						
-						
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>prefix</b>
-									
-								</dt>
-								<dd>the prefix</dd>
-							
-							</dl>
-						
-						
-						
 						
 						
 						
@@ -670,6 +498,9 @@ ul.inheritsList
 
 					
 				
+			
+
+<!-- ============================== method details ========================= -->		
 			
 			
 <!-- ============================== event details ========================= -->		

@@ -1,18 +1,19 @@
-<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
-	.KEYW {color: #933;}
-	.COMM {color: #bbb; font-style: italic;}
-	.NUMB {color: #393;}
-	.STRN {color: #393;}
-	.REGX {color: #339;}
-	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
-	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
-<span class='line'>  2</span>  * Copyright 2010 - 2012 Leo Sutic &lt;leo.sutic@gmail.com>
+<html><head><meta name="viewport" content="initial-scale=1.0, width=device-width, height=device-height"><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+    .KEYW {color: #933;}
+    .COMM {color: #080; font-style: italic;}
+    .NUMB {color: #339;}
+    .STRN {color: #339;}
+    .REGX {color: #339;}
+    .line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+    pre { white-space: pre-wrap; }
+    </style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * Copyright 2010 - 2012 Leo Sutic &lt;leo​.sutic@gmail​.com>
 <span class='line'>  3</span>  *  
-<span class='line'>  4</span>  * Licensed under the Apache License, Version 2.0 (the "License"); 
+<span class='line'>  4</span>  * Licensed under the Apache License, Version 2​.0 (the "License"); 
 <span class='line'>  5</span>  * you may not use this file except in compliance with the License. 
 <span class='line'>  6</span>  * You may obtain a copy of the License at 
 <span class='line'>  7</span>  * 
-<span class='line'>  8</span>  *     http://www.apache.org/licenses/LICENSE-2.0 
+<span class='line'>  8</span>  *     http://www​.apache​.org​/licenses​/LICENSE-2​.0 
 <span class='line'>  9</span>  *     
 <span class='line'> 10</span>  * Unless required by applicable law or agreed to in writing, software 
 <span class='line'> 11</span>  * distributed under the License is distributed on an "AS IS" BASIS, 
@@ -26,10 +27,10 @@
 <span class='line'> 19</span>  *
 <span class='line'> 20</span>  * @class Abstract filesystem definition.
 <span class='line'> 21</span>  */</span><span class="WHIT">
-<span class='line'> 22</span> </span><span class="NAME">bigshot.FileSystem</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 22</span> </span><span class="NAME">bigshot​.FileSystem</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
 <span class='line'> 23</span> </span><span class="PUNC">}</span><span class="WHIT">
 <span class='line'> 24</span> 
-<span class='line'> 25</span> </span><span class="NAME">bigshot.FileSystem.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 25</span> </span><span class="NAME">bigshot​.FileSystem​.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
 <span class='line'> 26</span> </span><span class="WHIT">    </span><span class="COMM">/**
 <span class='line'> 27</span>      * Returns the URL filename for the given filesystem entry.
 <span class='line'> 28</span>      *
@@ -57,37 +58,39 @@
 <span class='line'> 50</span> </span><span class="WHIT">    </span><span class="COMM">/**
 <span class='line'> 51</span>      * Returns an image descriptor object from the descriptor file.
 <span class='line'> 52</span>      *
-<span class='line'> 53</span>      * @return a descriptor object
-<span class='line'> 54</span>      */</span><span class="WHIT">
-<span class='line'> 55</span> </span><span class="WHIT">    </span><span class="NAME">getDescriptor</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'> 56</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'> 57</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'> 58</span>      * Returns the poster URL filename. For Bigshot images this is
-<span class='line'> 59</span>      * typically the URL corresponding to the entry "poster.jpg", 
-<span class='line'> 60</span>      * but for other filesystems it can be different.
-<span class='line'> 61</span>      */</span><span class="WHIT">
-<span class='line'> 62</span> </span><span class="WHIT">    </span><span class="NAME">getPosterFilename</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'> 63</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 64</span> 
-<span class='line'> 65</span> </span><span class="COMM">/**
-<span class='line'> 66</span>  * Sets up a filesystem instance in the given parameters object, if none exist.
-<span class='line'> 67</span>  * If the {@link bigshot.ImageParameters#fileSystem} member isn't set, the 
-<span class='line'> 68</span>  * {@link bigshot.ImageParameters#fileSystemType} member is used to create a new 
-<span class='line'> 69</span>  * {@link bigshot.FileSystem} instance and set it.
-<span class='line'> 70</span>  *
-<span class='line'> 71</span>  * @param {bigshot.ImageParameters or bigshot.VRPanoramaParameters or bigshot.ImageCarouselPanoramaParameters} parameters the parameters object to populate
-<span class='line'> 72</span>  */</span><span class="WHIT">
-<span class='line'> 73</span> </span><span class="NAME">bigshot.setupFileSystem</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">parameters</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'> 74</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">parameters.fileSystem</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'> 75</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">parameters.fileSystemType</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">"archive"</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'> 76</span> </span><span class="WHIT">            </span><span class="NAME">parameters.fileSystem</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">bigshot.ArchiveFileSystem</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">parameters</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 77</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">parameters.fileSystemType</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">"dzi"</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'> 78</span> </span><span class="WHIT">            </span><span class="NAME">parameters.fileSystem</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">bigshot.DeepZoomImageFileSystem</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">parameters</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 79</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">parameters.fileSystemType</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">"simple"</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'> 80</span> </span><span class="WHIT">            </span><span class="NAME">parameters.fileSystem</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">bigshot.SimpleFileSystem</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">parameters</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 81</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'> 82</span> </span><span class="WHIT">            </span><span class="NAME">parameters.fileSystem</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">bigshot.FolderFileSystem</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">parameters</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'> 83</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'> 84</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'> 85</span> </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'> 86</span> </span></pre></body></html>
+<span class='line'> 53</span>      * @param {Function} [callback] an optional callback that receives the descriptor 
+<span class='line'> 54</span>      * after an async load. Otherwise the function does a synchronous load.
+<span class='line'> 55</span>      * @return a descriptor object
+<span class='line'> 56</span>      */</span><span class="WHIT">
+<span class='line'> 57</span> </span><span class="WHIT">    </span><span class="NAME">getDescriptor</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">callback</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 58</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'> 59</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'> 60</span>      * Returns the poster URL filename. For Bigshot images this is
+<span class='line'> 61</span>      * typically the URL corresponding to the entry "poster​.jpg", 
+<span class='line'> 62</span>      * but for other filesystems it can be different.
+<span class='line'> 63</span>      */</span><span class="WHIT">
+<span class='line'> 64</span> </span><span class="WHIT">    </span><span class="NAME">getPosterFilename</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 65</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 66</span> 
+<span class='line'> 67</span> </span><span class="COMM">/**
+<span class='line'> 68</span>  * Sets up a filesystem instance in the given parameters object, if none exist.
+<span class='line'> 69</span>  * If the {@link bigshot​.ImageParameters#fileSystem} member isn't set, the 
+<span class='line'> 70</span>  * {@link bigshot​.ImageParameters#fileSystemType} member is used to create a new 
+<span class='line'> 71</span>  * {@link bigshot​.FileSystem} instance and set it.
+<span class='line'> 72</span>  *
+<span class='line'> 73</span>  * @param {bigshot​.ImageParameters or bigshot​.VRPanoramaParameters or bigshot​.ImageCarouselPanoramaParameters} parameters the parameters object to populate
+<span class='line'> 74</span>  */</span><span class="WHIT">
+<span class='line'> 75</span> </span><span class="NAME">bigshot​.setupFileSystem</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">parameters</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 76</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">parameters​.fileSystem</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 77</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">parameters​.fileSystemType</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">"archive"</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 78</span> </span><span class="WHIT">            </span><span class="NAME">parameters​.fileSystem</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">bigshot​.ArchiveFileSystem</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">parameters</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 79</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">parameters​.fileSystemType</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">"dzi"</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 80</span> </span><span class="WHIT">            </span><span class="NAME">parameters​.fileSystem</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">bigshot​.DeepZoomImageFileSystem</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">parameters</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 81</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">parameters​.fileSystemType</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">"simple"</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 82</span> </span><span class="WHIT">            </span><span class="NAME">parameters​.fileSystem</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">bigshot​.SimpleFileSystem</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">parameters</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 83</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 84</span> </span><span class="WHIT">            </span><span class="NAME">parameters​.fileSystem</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">bigshot​.FolderFileSystem</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">parameters</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 85</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 86</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 87</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 88</span> </span></pre></body></html>
